@@ -195,7 +195,7 @@
                                 <div>地址 : ${place.formatted_address}</div>
                                 <div>電話 : ${place.formatted_phone_number}</div>
                                 <div>評分 : ${place.rating}</div>
-                                <div>營業狀態 : ${place.business_status}</div>
+                                <div>營業狀態 : ${getBusinessStatus(place.opening_hours)}</div>
                                 <button class = "btn btn-secondary mt-2" id = "import_in" >加進我的地圖</button>
                                 `
                                 });

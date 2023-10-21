@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>推薦的美食之路</title> 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-firestore.js"></script>
+    </head>
+    <body>
+        <br>
+        <br>
+        <section class="hero is-warning">
+            <div class="hero-body">
+              <p class="title is-1">
+                推薦的美食之路
+              </p>
+              <p class="subtitle is-3">
+                竹塹美食探索家
+              </p>
+            </div>
+        </section>
+        <br>
+        <br>
+        <div id="route-list"></div>
+    </body>
+    <script>
+        var in_line=0;
+        // Initialize Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyB7vD0mWILRt5tTSfT2kIzwfcTfUaKfyUY",
+            authDomain: "hackathon-machu.firebaseapp.com",
+            projectId: "hackathon-machu",
+            storageBucket: "hackathon-machu.appspot.com",
+            messagingSenderId: "51829601565",
+            appId: "1:51829601565:web:3334d8973225340da71df4"
+        };
+        firebase.initializeApp(firebaseConfig);
+        var db = firebase.firestore();
+
+
+        // 在DOM加载完毕后执行
+        document.addEventListener("DOMContentLoaded", function() {
+            db.collection("food_route").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.exists) {
+                        in_line=in_line+1;
+                        // 获取文档数据
+                        const data = doc.data();
+                        //內文
+                        const author = data.author;
+                        if(in_line==1){
+                            document.getElementById('route-list').innerHTML += `
+                            `;
+                        }
+                        document.getElementById('route-list').innerHTML += `
+                            <button class="button is-large" onclick="redirectToSecondPage('${doc.id}')">
+                                ${author} 的美食之路 id:${doc.id}
+                            </button>
+                        `;
+                        if(in_line==5){
+                            document.getElementById('route-list').innerHTML += `
+                                <br>
+                            `;
+                            in_line=0;
+                        }
+                    }
+                });
+            });
+        });
+
+        function redirectToSecondPage(id) {
+            window.location.href = "share_page.html?id=" + id;
+        }
+    </script>
+</html>
