@@ -33,7 +33,6 @@ radiusSlider.addEventListener('input', function() {
     radiusValue.textContent = range + ' 公尺';
 });
 
-
 function homepage(){
     window.location.href = 'https://louischang0126.github.io';
 }
@@ -69,6 +68,9 @@ function initMap() {
 
     });
     
+    // 初始化 PlacesService
+    const placesService = new google.maps.places.PlacesService(map);
+
     // // 创建用于用户位置的图标
     // const userIcon = {
     //     url: 'user-marker.png', // 用户位置的图标图片 URL
@@ -93,7 +95,7 @@ function initMap() {
         var userMarker = new google.maps.Marker({
             position: userLatLng,
             map: map,
-            icon: userIcon,
+            // icon: userIcon,
             title: "您的位置"
         });
 
@@ -180,8 +182,6 @@ function initMap() {
             );
         });
     });
-    // 初始化 PlacesService
-    const placesService = new google.maps.places.PlacesService(map);
 
     // 取得大分類按鈕和相對應的小分類容器
     const categoryButtons = document.querySelectorAll('.category-button');
@@ -365,7 +365,7 @@ function initMap() {
             // 創建唯一的收藏按鈕 ID
             const favoriteButtonId = 'favorite-button-${place_id}';
             const isFavorite = isRestaurantFavorite(place_id);
-            const buttonText = isFavorite ? '取消收藏' : '收藏';
+            const buttonText = isFavorite ? '取消收藏' : '收藏至想去餐廳';
             
             let priceString = '';
             if (placeDetails.price_level) {
@@ -390,7 +390,7 @@ function initMap() {
             // 設置卡片內容，檢查是否有照片
             if (placeDetails.photos && placeDetails.photos.length > 0) {
                 const photoUrl = placeDetails.photos[0].getUrl();
-                // card.class = "card";
+                
                 card.innerHTML = `
                 <div class="card-image">
                     <figure class="image is-2by1">
@@ -399,7 +399,7 @@ function initMap() {
                 </div>
 
                 <div class="content" style="overflow: hidden;">
-                    <p class="title is-5" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${placeDetails.name}</p>
+                    <p class="title is-5" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><a href="${placeDetails.url}" target="_blank">${placeDetails.name}</a></p>
                     <p class="subtitle is-6">${ratingString}</p>
                     <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">地址：${placeDetails.formatted_address}</p>
                     <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">電話：${placeDetails.formatted_phone_number || '暫無'}</p>
@@ -415,15 +415,23 @@ function initMap() {
             } 
             else {
                 card.innerHTML = `
-                    <h3>${placeDetails.name}</h3>
-                    <p>${ratingString}</p>
-                    <p>地址：${placeDetails.formatted_address}</p>
-                    <p>電話：${placeDetails.formatted_phone_number || '暫無'}</p>
-                    <p>價位：${priceString}</p>
-                    <p>營業狀態：${getBusinessStatus(placeDetails.opening_hours)}</p>
-                    <p>外送連結：${'https://www.foodpanda.com.tw/restaurant/w21l/bao-da-gang-shi-cha-can-ting-ai-mai-xin-zhu-dian'}</a></p>
-                    <p>網頁：<a href="${placeDetails.website || '#'}" target="_blank">${placeDetails.website || '暫無'}</a></p>
-                    <button id="${favoriteButtonId}" class="favorite-button">收藏</button>
+                <div class="card-image">
+                    <figure class="image is-2by1">
+                        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                    </figure>
+                </div>
+
+                <div class="content" style="overflow: hidden;">
+                    <p class="title is-5" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><a href="${placeDetails.url}" target="_blank">${placeDetails.name}</a></p>
+                    <p class="subtitle is-6">${ratingString}</p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">地址：${placeDetails.formatted_address}</p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">電話：${placeDetails.formatted_phone_number || '暫無'}</p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">價位：${priceString}</p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">外送連結：<a href="${deliveryLink}" target="_blank">點此訂購外送</a></p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">營業狀態：${getBusinessStatus(placeDetails.opening_hours)}</p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">網頁：<a href="${placeDetails.website || '#'}" target="_blank">${placeDetails.website || '暫無'}</a></p>
+                    <button id="${favoriteButtonId}" class="favorite-button button block" style="font-size: 12px;">${buttonText}</button>
+                </div>
                 `;
             }
 
@@ -443,7 +451,7 @@ function initMap() {
             // 將新卡片添加到容器中
             cardContainer.appendChild(card);
 
-            // 處理“收藏”按鈕點擊事件的程式碼
+            // // 處理“收藏”按鈕點擊事件的程式碼
             // const favoriteButton = document.getElementById(favoriteButtonId);
             // favoriteButton.dataset.place_id = place_id;
 
@@ -470,13 +478,12 @@ function initMap() {
                 
                 if (event.target && event.target.classList.contains('favorite-button')) {
                     const favoriteButton = document.getElementById(favoriteButtonId);
-                    console.log(favoriteButton)
+                    console.log(favoriteButton);
                     favoriteButton.dataset.placeId = place_id;
                     handleFavoriteClick(favoriteButton);
                 }
             });
         }
-
     }
     
     // 根據place_id查找相對應的標記（marker）
@@ -490,7 +497,7 @@ function initMap() {
 
     function handleFavoriteClick(button) {
         const placeId = button.dataset.placeId;
-        console.log("button placeId", button.dataset.placeId)
+        // console.log("button placeId", button.dataset.placeId)
         // 檢查餐廳是否已被收藏
         const isFavorite = isRestaurantFavorite(placeId);
 
@@ -498,7 +505,7 @@ function initMap() {
             // 取消收藏
             removeFromFavorites(placeId);
             button.classList.remove('unfavorite');
-            button.textContent = '收藏';
+            button.textContent = '收藏至想去餐廳';
         } else {
             // 收藏
             addToFavorites(placeId);
@@ -540,6 +547,4 @@ function initMap() {
         cardContainer.innerHTML = '';
         searchAndMarkRestaurants(null, favRestaurantList);
     });
-
-    
 }
