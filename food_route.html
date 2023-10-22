@@ -101,19 +101,18 @@
                 }]
             });
             //////////////////////////////////////////////////////////////////////////////////////
-            bounds = new google.maps.LatLngBounds();
             if(known_location){
 
                 navigator.geolocation.getCurrentPosition(function(position){
-                    currentPosition2 = {
+                    currentPosition = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
                     };
 
-                    cur_lat = currentPosition2.lat;
-                    cur_lng = currentPosition2.lng;
+                    cur_lat = currentPosition.lat;
+                    cur_lng = currentPosition.lng;
 
-                    map.setCenter(currentPosition2);
+                    map.setCenter(currentPosition);
                     map.setZoom(17);
                 });
                 known_location = false;
@@ -260,9 +259,6 @@
                     title: restaurant.name,
                 });
 
-                bounds.extend(restaurantLatLng);
-
-
                 // 將餐廳的詳細信息顯示在信息窗口中
                 google.maps.event.addListener(restaurantMarker, 'click', function () {
                     if (!infoWindow) {
@@ -280,7 +276,6 @@
                     infoWindow.open(map, restaurantMarker);
                 });
             }
-            map.fitBounds(bounds);
         }
         ////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////
