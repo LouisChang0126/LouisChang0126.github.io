@@ -370,7 +370,7 @@
 
         document.addEventListener("DOMContentLoaded", function () {
 
-            if (pageId != null) {// 如果讀取到了 id，這裡可以處理相應的邏輯
+            if (pageId !== null) {// 如果讀取到了 id，這裡可以處理相應的邏輯
                 db.collection("food_route").doc(pageId).get().then((doc) => {
                     if (doc.exists) {
                         // 获取文档数据
