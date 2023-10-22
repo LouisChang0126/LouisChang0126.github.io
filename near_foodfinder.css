@@ -1,0 +1,102 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden; /* 防止地圖出現水平滾動條 */
+}
+
+#map-container {
+    flex-grow: 1;
+    padding: 30px 0px; /* 添加四周的留白 */
+    position: relative;
+    overflow: hidden; /* 確保地圖容器不溢出 */
+    display: flex;
+    justify-content: center;
+    align-items: top;
+}
+
+#map {
+    width: 90%; 
+    height: 80vh; 
+}
+
+#sidebar {
+    width: 40%; /* 調整側欄寬度 */
+    height: 100%;
+    background-color: white;
+    padding: 30px 16px;
+    box-sizing: border-box;
+    /* overflow-y: auto; 允許側欄滾動 */
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column; /* 調整搜尋容器為垂直排列 */
+}
+
+/* #search-input {
+    height: 40px;
+    margin-bottom: 16px; /* 移除右側的 margin-right 並添加底邊距 
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+} */
+
+/* .category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+/* .category-button {
+    background-color: #006cdfbe;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+} */
+
+/* .category-button:last-child {
+    margin-right: 0;
+} */
+
+.block:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+  /* .subcategory-button {
+    background-color: #50a5ffbe;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+} */
+
+#card-container {
+width: 100%;
+max-height: 600px; /* 设置最大高度，超过该高度将出现滚动条 */
+overflow-y: scroll; /* 设置垂直滚动 */
+overflow-x: hidden; /* 隐藏水平滚动条 */
+/* padding: 16px; */
+}
+
+/* .card {
+    background-color: #f1f1f1;
+    margin-bottom: 16px;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+} */
+
+.content {
+    padding: 16px;
+    border-radius: 4px;
+}

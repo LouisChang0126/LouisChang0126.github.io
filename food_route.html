@@ -105,15 +105,15 @@
             if(known_location){
 
                 navigator.geolocation.getCurrentPosition(function(position){
-                    currentPosition = {
+                    currentPosition2 = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
                     };
 
-                    cur_lat = currentPosition.lat;
-                    cur_lng = currentPosition.lng;
+                    cur_lat = currentPosition2.lat;
+                    cur_lng = currentPosition2.lng;
 
-                    map.setCenter(currentPosition);
+                    map.setCenter(currentPosition2);
                     map.setZoom(17);
                 });
                 known_location = false;
@@ -366,7 +366,7 @@
 
 
         document.addEventListener("DOMContentLoaded", function () {
-            
+
             if (pageId !== null) {// 如果讀取到了 id，這裡可以處理相應的邏輯
                 db.collection("food_route").doc(pageId).get().then((doc) => {
                     if (doc.exists) {

@@ -64,17 +64,17 @@ function initMap() {
 
     });
     
-    // 创建用于用户位置的图标
-    const userIcon = {
-        url: 'user-marker.png', // 用户位置的图标图片 URL
-        scaledSize: new google.maps.Size(32, 32), // 图标的大小
-    };
+    // // 创建用于用户位置的图标
+    // const userIcon = {
+    //     url: 'user-marker.png', // 用户位置的图标图片 URL
+    //     scaledSize: new google.maps.Size(32, 32), // 图标的大小
+    // };
     
     // 创建用于餐厅或其他地点的标记图标
-    const restaurantIcon = {
-        url: 'https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png', // 餐厅位置的图标图片 URL
-        scaledSize: new google.maps.Size(32, 32), // 图标的大小
-    };
+    // const restaurantIcon = {
+    //     url: 'https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png', // 餐厅位置的图标图片 URL
+    //     scaledSize: new google.maps.Size(32, 32), // 图标的大小
+    // };
 
     bounds = new google.maps.LatLngBounds();
     // 取得使用者位置
@@ -275,7 +275,7 @@ function initMap() {
                 const marker = new google.maps.Marker({
                     position: location,
                     map: map,
-                    icon: restaurantIcon,
+                    // icon: restaurantIcon,
                     title: placeDetails.name,
                     markerId: markerId, // 添加獨立的編號
                 });
@@ -354,7 +354,7 @@ function initMap() {
 
             // 創建新的店家卡片
             const card = document.createElement('div');
-            card.className = 'card';
+            card.className = 'card block';
             card.id = `restaurant-card-${place_id}`;
 
             // 創建唯一的收藏按鈕 ID
@@ -385,25 +385,35 @@ function initMap() {
             // 設置卡片內容，檢查是否有照片
             if (placeDetails.photos && placeDetails.photos.length > 0) {
                 const photoUrl = placeDetails.photos[0].getUrl();
+                // card.class = "card";
                 card.innerHTML = `
-                    <h3>${placeDetails.name}</h3>
-                    <img id="restaurant-photo" src="${photoUrl}" alt="餐廳照片" style="max-width: 800px; max-height: 250px; object-fit: cover;">
-                    <p>地址：${placeDetails.formatted_address}</p>
-                    <p>電話：${placeDetails.formatted_phone_number || '暫無'}</p>
-                    <p>評分：${ratingString}</p>
-                    <p>價位：${priceString}</p>
-                    <p>外送連結：<a href="${deliveryLink}" target="_blank">點此訂購外送</a></p>
-                    <p>營業狀態：${getBusinessStatus(placeDetails.opening_hours)}</p>
-                    <p>網頁：<a href="${placeDetails.website || '#'}" target="_blank">${placeDetails.website || '暫無'}</a></p>
-                    <button id="${favoriteButtonId}" class="favorite-button">${buttonText}</button>
-                `;
+                <div class="card-image">
+                    <figure class="image is-2by1">
+                        <img id="restaurant-photo" src="${photoUrl}" alt="餐廳照片">
+                    </figure>
+                </div>
+
+                <div class="content" style="overflow: hidden;">
+                    <p class="title is-5" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${placeDetails.name}</p>
+                    <p class="subtitle is-6">${ratingString}</p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">地址：${placeDetails.formatted_address}</p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">電話：${placeDetails.formatted_phone_number || '暫無'}</p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">價位：${priceString}</p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">外送連結：<a href="${deliveryLink}" target="_blank">點此訂購外送</a></p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">營業狀態：${getBusinessStatus(placeDetails.opening_hours)}</p>
+                    <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12px;">網頁：<a href="${placeDetails.website || '#'}" target="_blank">${placeDetails.website || '暫無'}</a></p>
+                    <button id="${favoriteButtonId}" class="favorite-button button block" style="font-size: 12px;">${buttonText}</button>
+                </div>
+
+            `;
+
             } 
             else {
                 card.innerHTML = `
                     <h3>${placeDetails.name}</h3>
+                    <p>${ratingString}</p>
                     <p>地址：${placeDetails.formatted_address}</p>
                     <p>電話：${placeDetails.formatted_phone_number || '暫無'}</p>
-                    <p>評分：${ratingString}</p>
                     <p>價位：${priceString}</p>
                     <p>營業狀態：${getBusinessStatus(placeDetails.opening_hours)}</p>
                     <p>外送連結：${'https://www.foodpanda.com.tw/restaurant/w21l/bao-da-gang-shi-cha-can-ting-ai-mai-xin-zhu-dian'}</a></p>
