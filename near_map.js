@@ -33,6 +33,11 @@ radiusSlider.addEventListener('input', function() {
     radiusValue.textContent = range + ' 公尺';
 });
 
+
+function homepage(){
+    window.location.href = 'https://louischang0126.github.io';
+}
+
 function initMap() {
 
     // 初始位置
@@ -535,4 +540,6 @@ function initMap() {
         cardContainer.innerHTML = '';
         searchAndMarkRestaurants(null, favRestaurantList);
     });
+
+    
 }

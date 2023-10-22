@@ -10,12 +10,13 @@
     <div style = "display: flex;">
         <div id = "map" style = "width: 60%; height: 100vh;"></div>
         <div style = "padding: 16px;">
-            <h3>美食地圖</h3>
+            <h3>美食之路</h3>
+            <button class="btn btn-secondary mt-2" onclick="homepage()">Back</button>
             <input id = "search-input" class = "form-control"/> 
             <button class = "btn btn-primary mt-2" id = "add" >加入我的地圖</button>
             <button class="btn btn-info mt-2" id="toggle-mode" onclick="toggleTravelMode()">顯示路線圖</button>
             <button class = "btn btn-secondary mt-2" id = "export" onclick="export_the_route()">匯出地圖</button>
-            <h4 class = "mt-4">我的美食地圖
+            <h4 class = "mt-4">我的美食之路
             </h4>
             <ul class = "list-group list-group-flush list-group-numbered" id = "restaurant-list"></ul>
         </div>
@@ -74,6 +75,10 @@
             console.log("已匯出，感謝您的分享");
         }
 
+        function homepage(){
+            window.location.href = 'https://louischang0126.github.io';
+        }
+
         function initMap(){
             map = new google.maps.Map(document.getElementById('map'), {
                 center : {lat: 23.553118, lng: 121.0211024},
@@ -100,6 +105,24 @@
                     stylers: [{visibility: 'off'}]
                 }]
             });
+
+            /////////////////////////////////////////////////////////////////////////////////
+            if(!known_location){
+                map.setZoom(14);
+                map.setCenter(selectedRestaurant.location);
+            }
+            const autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById('search-input'),{
+                    types: ['restaurant', 'cafe', 'bar', 'meal_takeaway', 'meal_delivery'],
+                    bounds: {
+                        east: cur_lng + 0.002,
+                        west: cur_lng - 0.002,
+                        south: cur_lat - 0.002,
+                        north: cur_lat + 0.002,
+                    },
+                    strictBounds: false,
+                }
+            );
             //////////////////////////////////////////////////////////////////////////////////////
             if(known_location){
 
@@ -119,21 +142,6 @@
             }
             //////////////////////////////////////////////////////////////////////////////////
 
-            map.setCenter(currentPosition);
-            if(!known_location)map.setZoom(14);
-
-            const autocomplete = new google.maps.places.Autocomplete(
-                document.getElementById('search-input'),{
-                    types: ['restaurant', 'cafe', 'bar', 'meal_takeaway', 'meal_delivery'],
-                    bounds: {
-                        east: cur_lng + 0.002,
-                        west: cur_lng - 0.002,
-                        south: cur_lat - 0.002,
-                        north: cur_lat + 0.002,
-                    },
-                    strictBounds: false,
-                }
-            );
 
             autocomplete.addListener('place_changed', function(){
                 map.setCenter(currentPosition);
@@ -304,10 +312,10 @@
 
             if(det === false){
                 det = true;
-                document.getElementById("toggle-mode").textContent = "開車模式";
+                document.getElementById("toggle-mode").textContent = "行人模式";
             }else if (det === true){
                 det = false;
-                document.getElementById("toggle-mode").textContent = "行人模式";
+                document.getElementById("toggle-mode").textContent = "開車模式";
             }
             
 
