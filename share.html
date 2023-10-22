@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>推薦的美食之路</title> 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-firestore.js"></script>
+    </head>
+    <body>
+        <br>
+        <br>
+        <section class="hero is-warning">
+            <div class="hero-body">
+              <p class="title is-1">
+                搜尋美食之路
+              </p>
+              <p class="subtitle is-3">
+                竹塹美食探索家
+              </p>
+            </div>
+        </section>
+        <br>
+        <br>
+        <nav class="level">
+            <!-- Left side -->
+            <div class="level-left">
+                <div class="level-item"></div>
+                <div class="level-item"></div>
+                <div class="level-item"></div>
+                <div class="level-item"></div>
+                <div class="level-item"></div>
+                <div class="level-item">
+                    <p class="subtitle is-3">
+                        以id搜尋:
+                    </p>
+                </div>
+                <div class="level-item">
+                    <div class="field has-addons">
+                    <p class="control">
+                        <input class="input is-info" id="inputId" type="text" placeholder="enter id">
+                    </p>
+                    <p class="control">
+                        <button class="button is-info" onclick="search_id()">Search</button>
+                    </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Right side -->
+            <div class="level-right"></div>
+        </nav>
+        <br>
+        <div id="route-list"></div>
+    </body>
+    <script>
+        // Initialize Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyB7vD0mWILRt5tTSfT2kIzwfcTfUaKfyUY",
+            authDomain: "hackathon-machu.firebaseapp.com",
+            projectId: "hackathon-machu",
+            storageBucket: "hackathon-machu.appspot.com",
+            messagingSenderId: "51829601565",
+            appId: "1:51829601565:web:3334d8973225340da71df4"
+        };
+        firebase.initializeApp(firebaseConfig);
+        var db = firebase.firestore();
+
+
+        // 在DOM加载完毕后执行
+        document.addEventListener("DOMContentLoaded", function() {
+            db.collection("food_route").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.exists) {
+                        // 获取文档数据
+                        const data = doc.data();
+                        //內文
+                        const author = data.author;
+                        document.getElementById('route-list').innerHTML += `
+                            <button class="button is-large" onclick="redirectToSecondPage('${doc.id}')">
+                                ${author} 的美食之路 id:${doc.id}
+                            </button>
+                        `;
+                    }
+                });
+            });
+        });
+
+        function search_id() {
+            var id = document.getElementById('inputId').value;
+            redirectToSecondPage(id);
+        }
+
+        function redirectToSecondPage(id) {
+            window.location.href = "share_page.html?id=" + id;
+        }
+    </script>
+</html>
