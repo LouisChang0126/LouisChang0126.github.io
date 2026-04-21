@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { useLocale } from '@/composables/useLocale';
 import { education, coursework } from '@/data/education';
 import { ui } from '@/data/messages';
 
 const { t } = useLocale();
+const courseworkOpen = ref(false);
 </script>
 
 <template>
@@ -28,8 +30,16 @@ const { t } = useLocale();
       </ol>
 
       <div class="coursework">
-        <h4>{{ t(ui.selectedCoursework) }}</h4>
-        <div class="groups">
+        <button
+          type="button"
+          class="coursework-toggle"
+          :aria-expanded="courseworkOpen"
+          @click="courseworkOpen = !courseworkOpen"
+        >
+          <span class="chevron" :class="{ open: courseworkOpen }">▸</span>
+          <h4>{{ t(ui.selectedCoursework) }}</h4>
+        </button>
+        <div v-show="courseworkOpen" class="groups">
           <div v-for="g in coursework" :key="g.category.en" class="group">
             <div class="cat">{{ t(g.category) }}</div>
             <div class="courses">
@@ -58,7 +68,24 @@ h3 { margin: 0; font-size: 1rem; font-weight: 700; }
 .gpa { color: var(--accent); font-weight: 600; }
 
 .coursework { margin-top: 1.2rem; }
-.coursework h4 { margin: 0 0 0.6rem; font-size: 0.92rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.coursework-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0 0 0.6rem;
+  user-select: none;
+}
+.coursework-toggle:hover h4,
+.coursework-toggle:hover .chevron { color: var(--accent); }
+.coursework-toggle h4 { margin: 0; font-size: 0.92rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.chevron {
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.15s ease;
+}
+.chevron.open { transform: rotate(90deg); }
 .groups { display: flex; flex-direction: column; gap: 0.6rem; }
 .group { display: grid; grid-template-columns: 180px 1fr; gap: 0.8rem; align-items: baseline; }
 .cat { font-weight: 600; color: var(--accent); font-size: 0.88rem; }

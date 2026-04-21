@@ -60,7 +60,7 @@ export const experience: ExperienceItem[] = [
       },
       {
         en: 'Built a real-to-sim robot arm pipeline (UMI → RoboCasa → Diffusion Policy); adopted as FunAI 2025 curriculum.',
-        zh: '建置 real-to-sim 機械手臂流水線（UMI → RoboCasa → Diffusion Policy），被採用為 FunAI 2025 教材。',
+        zh: '建置 real-to-sim 機械手臂流程（UMI → RoboCasa → Diffusion Policy），被採用為 FunAI 2025 教材。',
       },
       {
         en: 'Customized Stretch3 and a handheld gripper with multi-modality, inspired by CLAMP and Robot Utility Models.',

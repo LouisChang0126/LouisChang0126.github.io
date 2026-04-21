@@ -29,10 +29,10 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
       <div class="photo">
         <ImagePlaceholder
           :src="profile.photo"
+          hover-src="/easteregg.jpg"
           :alt="t(profile.name)"
           label="Profile photo"
-          aspect-ratio="1 / 1"
-          rounded
+          aspect-ratio="1 / 1.2"
         />
       </div>
       <div class="intro">

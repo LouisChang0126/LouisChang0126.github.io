@@ -2,13 +2,13 @@ import type { Localized } from '@/types';
 
 export const ui: Record<string, Localized> = {
   navHome: { en: 'Home', zh: '首頁' },
-  navPublications: { en: 'Publications', zh: '發表' },
+  navPublications: { en: 'Publications', zh: '論文' },
   navProjects: { en: 'Projects', zh: '專案' },
   navExperience: { en: 'Experience', zh: '經歷' },
   navAwards: { en: 'Awards', zh: '競賽' },
   navEducation: { en: 'Education', zh: '學歷' },
   navSkills: { en: 'Skills', zh: '技能' },
-  navExtra: { en: 'Activities', zh: '社團' },
+  navExtra: { en: 'Clubs', zh: '社團' },
 
   downloadCV: { en: 'Download CV', zh: '下載履歷' },
   email: { en: 'Email', zh: '信箱' },

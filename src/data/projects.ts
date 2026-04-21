@@ -24,7 +24,7 @@ export const projects: Project[] = [
       },
       {
         en: 'Open-sourced at HCIS Lab; won High Distinction at NYCU CS Project Competition.',
-        zh: '於 HCIS Lab 開源；獲交大資工專題競賽高級榮譽獎。',
+        zh: '於 HCIS Lab 開源；獲陽明交大資工專題競賽高級榮譽獎。',
       },
     ],
     tags: ['ROS2', 'PX4', 'Gazebo', 'Drones', 'State Machine'],
@@ -66,6 +66,117 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: 'umi',
+    image: '/projects/umi.jpg',
+    date: 'Fall 2024 – Present',
+    title: {
+      en: 'Real-to-Sim Manipulation Pipeline — HCIS Lab',
+      zh: '真實到模擬的機械手臂訓練流程 — HCIS Lab',
+    },
+    summary: {
+      en: 'Real-world demos via UMI gripper → RoboCasa sim → Diffusion Policy training.',
+      zh: '透過 UMI 夾爪收集真實示範 → RoboCasa 模擬器 → 以 Diffusion Policy 訓練操作策略。',
+    },
+    bullets: [
+      {
+        en: 'Built a real-to-sim robot arm pipeline with Universal Manipulation Interface, RoboCasa, and Diffusion Policy.',
+        zh: '整合 Universal Manipulation Interface、RoboCasa 與 Diffusion Policy 構建 real-to-sim 流程。',
+      },
+      {
+        en: 'Pipeline adopted as the curriculum of FunAI 2025 (NTHU outreach program).',
+        zh: '此流程被採用為 FunAI 2025（清大推廣課程）的教材。',
+      },
+    ],
+    tags: ['Diffusion Policy', 'RoboCasa', 'UMI', 'Physical AI'],
+    links: [
+      { label: 'UMI', url: 'https://umi-gripper.github.io/', icon: 'link' },
+      { label: 'RoboCasa', url: 'https://robocasa.ai/', icon: 'link' },
+      { label: 'FunAI 2025', url: 'https://mislab.cs.nthu.edu.tw/explorecsr-4/', icon: 'link' },
+    ],
+    featured: true,
+  },
+  {
+    id: 'stretch3-gripper',
+    image: '/projects/stretch3-gripper.mp4',
+    date: 'Fall 2024 – Present',
+    title: {
+      en: 'Stretch3 & Handheld Multi-Modal Gripper — HCIS Lab',
+      zh: 'Stretch3 與手持多模態夾爪 — HCIS Lab',
+    },
+    summary: {
+      en: 'Custom gripper for the Stretch3 mobile manipulator plus a handheld variant with multi-modality sensing.',
+      zh: '為 Stretch3 移動式機械手臂客製化夾爪，並延伸出具備多模態感測的手持版。',
+    },
+    bullets: [
+      {
+        en: 'Customized the Stretch3 gripper with multi-modality capabilities for demonstration collection on the mobile manipulator.',
+        zh: '為 Stretch3 客製化多模態夾爪，用於移動式機械手臂上的示範資料收集。',
+      },
+      {
+        en: 'Built a handheld variant to extend data collection beyond the robot — inspired by CLAMP and Robot Utility Models.',
+        zh: '另外製作手持版本延伸資料收集範圍，設計靈感來自 CLAMP 與 Robot Utility Models。',
+      },
+    ],
+    tags: ['Stretch3', 'Gripper', 'Multi-Modality', 'Mobile Manipulation'],
+    featured: true,
+  },
+  {
+    id: 'make-ntu',
+    image: [
+      '/projects/make-ntu.jpg',
+      '/projects/make-ntu-2.jpg',
+      '/projects/make-ntu-3.png',
+      '/projects/make-ntu-4.jpg',
+    ],
+    date: 'May 2025',
+    title: {
+      en: 'Intelligent Parking System — Make NTU × AUO (3rd Place)',
+      zh: '智慧停車系統 — Make NTU × AUO（第三名）',
+    },
+    summary: {
+      en: 'Voice-driven parking that maximizes storage density with a lift-and-transport robot car.',
+      zh: '語音驅動的停車系統，以升降搬運機器車最大化車位密度。',
+    },
+    bullets: [
+      {
+        en: 'Developed an intelligent parking system combining STT, LLM, and TTS on the server side with an automated lift-and-transport robot car.',
+        zh: '伺服端結合 STT、LLM、TTS，搭配自動升降搬運機器車。',
+      },
+      {
+        en: 'Responsible for conceptualization, team leadership, mechanical design, and vehicle movement programming.',
+        zh: '負責構想、團隊領導、機構設計與車體運動程式。',
+      },
+    ],
+    tags: ['Robot Car', 'LLM', 'STT/TTS', 'Mechanical Design'],
+    featured: false,
+  },
+  {
+    id: 'church-bot',
+    image: '/projects/church-bot.png',
+    date: 'Jul. 2023 – Present',
+    title: {
+      en: 'Church Service Scheduling LINE Bot',
+      zh: '教會服事排班 LINE Bot',
+    },
+    summary: {
+      en: 'End-to-end scheduling serving 30+ members in production for 2+ years; LLM agent auto-assigns shifts.',
+      zh: '端到端排班系統，30+ 位同工正式使用滿兩年；LLM agent 自動排班。',
+    },
+    bullets: [
+      {
+        en: 'Built LINE Bot for shift swap & reminders + web dashboard; backed by GCP Cloud Functions and Firestore.',
+        zh: 'LINE Bot 負責換班、提醒；Web 儀表板負責瀏覽與編輯；後端使用 GCP Cloud Functions 與 Firestore。',
+      },
+      {
+        en: 'LLM agent auto-generates and modifies assignments from CSV under custom rules — reduced manual scheduling time by 85%.',
+        zh: 'LLM agent 依規則（避免連排、每週上限）自動從 CSV 生成並調整排班，手動作業減少 85%。',
+      },
+    ],
+    tags: ['LINE Bot', 'GCP', 'Firestore', 'LLM Agent'],
+    links: [{ label: 'GitHub', url: 'https://github.com/LouisChang0126/BOL-Line-Bot-3.0', icon: 'github' }],
+    featured: false,
+  },
+  {
     id: 'garmin-detection',
     image: '/projects/garmin-detection.jpg',
     date: 'Jul. 2025 – Feb. 2026',
@@ -92,42 +203,29 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 'umi',
-    image: '/projects/umi.jpg',
-    date: 'Fall 2024 – Present',
+    id: 'macro-kbd',
+    image: '/projects/macro-kbd.jpg',
+    date: 'Apr. 2023',
     title: {
-      en: 'Real-to-Sim Manipulation Pipeline — HCIS Lab',
-      zh: '真實到模擬的機械手臂訓練流水線 — HCIS Lab',
+      en: 'Arduino Macro Keyboard',
+      zh: 'Arduino 巨集鍵盤',
     },
     summary: {
-      en: 'Real-world demos via UMI gripper → RoboCasa sim → Diffusion Policy training.',
-      zh: '透過 UMI 夾爪收集真實示範 → RoboCasa 模擬器 → 以 Diffusion Policy 訓練操作策略。',
+      en: 'Customizable macro keyboard on Arduino Pro Micro; taught to 61 students across two club courses.',
+      zh: '基於 Arduino Pro Micro 的可自訂巨集鍵盤；於社課中教授 61 位同學。',
     },
     bullets: [
       {
-        en: 'Built a real-to-sim robot arm pipeline with Universal Manipulation Interface, RoboCasa, and Diffusion Policy.',
-        zh: '整合 Universal Manipulation Interface、RoboCasa 與 Diffusion Policy 構建 real-to-sim 流水線。',
-      },
-      {
-        en: 'Pipeline adopted as the curriculum of FunAI 2025 (NTHU outreach program).',
-        zh: '此流水線被採用為 FunAI 2025（清大推廣課程）的教材。',
-      },
-      {
-        en: 'Customized Stretch3 and a handheld gripper with multi-modality, inspired by CLAMP & Robot Utility Models.',
-        zh: '自製 Stretch3 多模態夾爪與手持夾爪，靈感來自 CLAMP 與 Robot Utility Models。',
+        en: 'Designed hardware + firmware; instructed as Teaching Officer of NYCU Makereal Club.',
+        zh: '負責硬體與韌體設計；於陽明交大創客社擔任教學幹部。',
       },
     ],
-    tags: ['Diffusion Policy', 'RoboCasa', 'UMI', 'Stretch3', 'Physical AI'],
-    links: [
-      { label: 'UMI', url: 'https://umi-gripper.github.io/', icon: 'link' },
-      { label: 'RoboCasa', url: 'https://robocasa.ai/', icon: 'link' },
-      { label: 'FunAI 2025', url: 'https://mislab.cs.nthu.edu.tw/explorecsr-4/', icon: 'link' },
-    ],
-    featured: true,
+    tags: ['Arduino', 'Firmware', 'HID'],
+    featured: false,
   },
   {
     id: 'meichu',
-    image: '/projects/meichu.jpg',
+    image: ['/projects/meichu.jpg', '/projects/meichu-2.jpg'],
     date: 'Aug. 2024',
     title: {
       en: 'GeoGuessr-in-NYCU — Meichu Hackathon (LINE Taiwan, 3rd Place)',
@@ -153,77 +251,5 @@ export const projects: Project[] = [
       { label: 'Meichu', url: 'https://2024.meichuhackathon.org/', icon: 'link' },
     ],
     featured: true,
-  },
-  {
-    id: 'make-ntu',
-    image: '/projects/make-ntu.jpg',
-    date: 'May 2025',
-    title: {
-      en: 'Intelligent Parking System — Make NTU × AUO (3rd Place)',
-      zh: '智慧停車系統 — Make NTU × AUO（第三名）',
-    },
-    summary: {
-      en: 'Voice-driven parking that maximizes storage density with a lift-and-transport robot car.',
-      zh: '語音驅動的停車系統，以升降搬運機器車最大化車位密度。',
-    },
-    bullets: [
-      {
-        en: 'Developed an intelligent parking system combining STT, LLM, and TTS on the server side with an automated lift-and-transport robot car.',
-        zh: '伺服端結合 STT、LLM、TTS，搭配自動升降搬運機器車。',
-      },
-      {
-        en: 'Responsible for conceptualization, team leadership, mechanical design, and vehicle movement programming.',
-        zh: '負責構想、團隊領導、機構設計與車體運動程式。',
-      },
-    ],
-    tags: ['Robot Car', 'LLM', 'STT/TTS', 'Mechanical Design'],
-    featured: false,
-  },
-  {
-    id: 'church-bot',
-    image: '/projects/church-bot.jpg',
-    date: 'Jul. 2023 – Present',
-    title: {
-      en: 'Church Service Scheduling LINE Bot',
-      zh: '教會服事排班 LINE Bot',
-    },
-    summary: {
-      en: 'End-to-end scheduling serving 30+ members in production for 2+ years; LLM agent auto-assigns shifts.',
-      zh: '端到端排班系統，30+ 位同工正式使用滿兩年；LLM agent 自動排班。',
-    },
-    bullets: [
-      {
-        en: 'Built LINE Bot for shift swap & reminders + web dashboard; backed by GCP Cloud Functions and Firestore.',
-        zh: 'LINE Bot 負責換班、提醒；Web 儀表板負責瀏覽與編輯；後端使用 GCP Cloud Functions 與 Firestore。',
-      },
-      {
-        en: 'LLM agent auto-generates and modifies assignments from CSV under custom rules — reduced manual scheduling time by 85%.',
-        zh: 'LLM agent 依規則（避免連排、每週上限）自動從 CSV 生成並調整排班，手動作業減少 85%。',
-      },
-    ],
-    tags: ['LINE Bot', 'GCP', 'Firestore', 'LLM Agent'],
-    links: [{ label: 'GitHub', url: 'https://github.com/LouisChang0126/BOL-Line-Bot-3.0', icon: 'github' }],
-    featured: false,
-  },
-  {
-    id: 'macro-kbd',
-    image: '/projects/macro-kbd.jpg',
-    date: 'Apr. 2023',
-    title: {
-      en: 'Arduino Macro Keyboard',
-      zh: 'Arduino 巨集鍵盤',
-    },
-    summary: {
-      en: 'Customizable macro keyboard on Arduino Pro Micro; taught to 61 students across two club courses.',
-      zh: '基於 Arduino Pro Micro 的可自訂巨集鍵盤；於社課中教授 61 位同學。',
-    },
-    bullets: [
-      {
-        en: 'Designed hardware + firmware; instructed as Teaching Officer of NYCU Makereal Club.',
-        zh: '負責硬體與韌體設計；於交大創客社擔任教學幹部。',
-      },
-    ],
-    tags: ['Arduino', 'Firmware', 'HID'],
-    featured: false,
   },
 ];

@@ -12,6 +12,7 @@ const links = [
   { href: '#experience', key: 'navExperience' },
   { href: '#education', key: 'navEducation' },
   { href: '#skills', key: 'navSkills' },
+  { href: '#extracurricular', key: 'navExtra' },
 ] as const;
 </script>
 

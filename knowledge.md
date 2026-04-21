@@ -10,7 +10,7 @@
 
 - **Louis (Chia-Jui) Chang / 張家睿**
 - NYCU CS B.S. (2022–2026) → M.S. Data Science & Engineering (2026–2028)
-- 研究領域：Computer Vision（SAM3 / YOLO / D-FINE / VLM）、Robotics（ROS2 / PX4 / Diffusion Policy / UMI）、LLM / Agents
+- 研究領域：Computer Vision（SAM3 / YOLO / D-FINE / VLM）、Robotics（ROS2 / PX4 / Diffusion Policy / UMI）、LLM Agents
 - GitHub: `LouisChang0126`；Email: `qulip.louis.0126@gmail.com`
 - 回覆習慣：**用繁體中文**，能讀英文技術內容
 - 互動風格：**先討論再實作**；面對設計選擇時喜歡看到有預覽/範例的多選項；決策完就希望一次到位

@@ -33,7 +33,8 @@ const iconFor = (icon?: string) => {
         :src="pub.image"
         :alt="t(pub.title)"
         label="Publication teaser figure"
-        aspect-ratio="4 / 3"
+        aspect-ratio="2410 / 888"
+        fit="contain"
       />
     </div>
     <div class="body">
@@ -55,7 +56,7 @@ const iconFor = (icon?: string) => {
 <style scoped>
 .pub {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 550px 1fr;
   gap: 1.5rem;
   background: var(--card);
   border: 1px solid var(--border);
@@ -68,7 +69,7 @@ const iconFor = (icon?: string) => {
   box-shadow: var(--shadow-hover);
   border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
 }
-.figure { width: 100%; }
+.figure { width: 100%; align-self: center; }
 .title {
   font-size: 1.05rem;
   font-weight: 700;
@@ -81,7 +82,7 @@ const iconFor = (icon?: string) => {
 .tldr { font-size: 0.92rem; color: var(--fg); line-height: 1.6; margin: 0; }
 [data-theme="dark"] .gh-icon { filter: invert(1); }
 
-@media (max-width: 720px) {
+@media (max-width: 860px) {
   .pub { grid-template-columns: 1fr; }
 }
 </style>

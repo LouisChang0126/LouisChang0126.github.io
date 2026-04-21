@@ -5,7 +5,7 @@ export const awards: AwardItem[] = [
     id: 'cs-project',
     title: {
       en: 'NYCU CS Project Competition — High Distinction Award',
-      zh: '交大資工專題競賽 — 高級榮譽獎',
+      zh: '陽明交大資工專題競賽 — 高級榮譽獎',
     },
     date: 'Jun. 2025',
     url: 'https://www.cs.nycu.edu.tw/storage/materials/3vUHaJzWEu8DY6vb1dWcUnvAiQt8YMXdpVSsIetS.pdf',

@@ -19,9 +19,13 @@ const displayed = computed(() => (showAll.value ? projects : featured.value));
         <h2>{{ t(ui.navProjects) }}</h2>
         <span class="section-anchor">#projects</span>
       </div>
+    </div>
+    <div class="bleed">
       <div class="grid">
         <ProjectCard v-for="p in displayed" :key="p.id" :proj="p" />
       </div>
+    </div>
+    <div class="container">
       <button
         v-if="others.length"
         class="toggle"
@@ -34,9 +38,15 @@ const displayed = computed(() => (showAll.value ? projects : featured.value));
 </template>
 
 <style scoped>
+.bleed {
+  width: min(100vw, 1440px);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  box-sizing: border-box;
+}
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.2rem;
 }
 .toggle {
@@ -54,7 +64,10 @@ const displayed = computed(() => (showAll.value ? projects : featured.value));
 }
 .toggle:hover { border-color: var(--accent); color: var(--accent); }
 
-@media (max-width: 760px) {
+@media (max-width: 960px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
   .grid { grid-template-columns: 1fr; }
 }
 </style>

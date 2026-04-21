@@ -3,7 +3,7 @@ import type { ClubItem } from '@/types';
 export const clubs: ClubItem[] = [
   {
     id: 'koinonia',
-    name: { en: 'NYCU Koinonia Club', zh: '交大團契' },
+    name: { en: 'NYCU Koinonia Club', zh: '陽明交大團契' },
     role: { en: 'President', zh: '社長' },
     date: 'Sep. 2022 – Jun. 2026',
     description: {
@@ -14,7 +14,7 @@ export const clubs: ClubItem[] = [
   },
   {
     id: 'makereal',
-    name: { en: 'NYCU Makereal Club', zh: '交大創客社' },
+    name: { en: 'NYCU Makereal Club', zh: '陽明交大創客社' },
     role: { en: 'Teaching Officer', zh: '教學幹部' },
     date: 'Sep. 2022 – Jan. 2024',
     description: {
@@ -24,7 +24,7 @@ export const clubs: ClubItem[] = [
   },
   {
     id: 'innovation',
-    name: { en: 'NYCU Innovation and Entrepreneurship Club', zh: '交大創新創業社' },
+    name: { en: 'NYCU Innovation and Entrepreneurship Club', zh: '陽明交大創新創業社' },
     role: { en: 'Operating Officer', zh: '營運幹部' },
     date: 'Jul. 2023 – Jul. 2024',
     description: {

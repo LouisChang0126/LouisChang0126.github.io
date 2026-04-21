@@ -3,7 +3,7 @@ import type { Publication } from '@/types';
 export const publications: Publication[] = [
   {
     id: 'yearguessr',
-    image: '/publications/yearguessr.png',
+    image: '/publications/yearguessr.jpg',
     title: {
       en: 'Beyond Memorization: A Multi-Modal Ordinal Regression Benchmark to Expose Popularity Bias in Vision-Language Models',
       zh: 'Beyond Memorization：以多模態序數回歸基準揭露視覺語言模型的熱門度偏誤',
