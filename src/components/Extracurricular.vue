@@ -1,0 +1,75 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useLocale } from '@/composables/useLocale';
+import { clubs } from '@/data/extracurricular';
+import { ui } from '@/data/messages';
+import ImagePlaceholder from './ImagePlaceholder.vue';
+
+const { t } = useLocale();
+const open = ref(false);
+</script>
+
+<template>
+  <section id="extracurricular">
+    <div class="container">
+      <div class="section-header collapsible" @click="open = !open">
+        <h2>{{ t(ui.navExtra) }}</h2>
+        <span class="toggle">{{ open ? '−' : '+' }}</span>
+      </div>
+      <div v-show="open" class="body">
+        <ol class="clubs">
+          <li v-for="c in clubs" :key="c.id">
+            <div class="line1">
+              <h3>
+                {{ t(c.name) }}
+                <span class="role">— {{ t(c.role) }}</span>
+              </h3>
+              <span class="date">{{ c.date }}</span>
+            </div>
+            <p>{{ t(c.description) }}</p>
+            <div v-if="c.media" class="media">
+              <ImagePlaceholder
+                :src="c.media"
+                :alt="t(c.name)"
+                :label="t(c.name)"
+                aspect-ratio="4 / 3"
+              />
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</template>
+
+<style scoped>
+.collapsible { cursor: pointer; user-select: none; }
+.collapsible:hover h2 { color: var(--accent); }
+.toggle {
+  font-size: 1.4rem;
+  color: var(--muted);
+  width: 24px;
+  text-align: center;
+}
+.clubs { list-style: none; padding: 0; margin: 0; }
+.clubs li { padding: 0.6rem 0; border-bottom: 1px dashed var(--border); }
+.clubs li:last-child { border-bottom: none; }
+.line1 { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+h3 { margin: 0; font-size: 1rem; font-weight: 600; }
+.role { color: var(--muted); font-weight: 500; font-size: 0.92rem; }
+.date {
+  color: var(--muted);
+  font-family: ui-monospace, monospace;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+p { margin: 0.25rem 0 0; color: var(--fg); font-size: 0.92rem; }
+.media {
+  margin-top: 0.6rem;
+  width: 280px;
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+</style>
