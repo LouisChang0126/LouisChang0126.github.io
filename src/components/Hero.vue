@@ -35,7 +35,7 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
           :src="photoSrc"
           :alt="t(profile.name)"
           label="Profile photo"
-          aspect-ratio="1 / 1.2"
+          aspect-ratio="1 / 1.4"
         />
       </div>
       <div class="intro">

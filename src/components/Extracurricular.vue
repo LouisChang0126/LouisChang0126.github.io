@@ -5,6 +5,32 @@ import { ui } from '@/data/messages';
 import ImagePlaceholder from './ImagePlaceholder.vue';
 
 const { t } = useLocale();
+
+let drag: { el: HTMLElement; startX: number; startScroll: number; moved: boolean } | null = null;
+
+function onPointerDown(e: PointerEvent) {
+  const el = e.currentTarget as HTMLElement;
+  if (el.scrollWidth <= el.clientWidth) return;
+  drag = { el, startX: e.clientX, startScroll: el.scrollLeft, moved: false };
+  el.setPointerCapture(e.pointerId);
+  el.classList.add('dragging');
+}
+function onPointerMove(e: PointerEvent) {
+  if (!drag) return;
+  const dx = e.clientX - drag.startX;
+  if (Math.abs(dx) > 3) drag.moved = true;
+  drag.el.scrollLeft = drag.startScroll - dx;
+}
+function onPointerUp(e: PointerEvent) {
+  if (!drag) return;
+  drag.el.releasePointerCapture(e.pointerId);
+  drag.el.classList.remove('dragging');
+  drag = null;
+}
+function onClickCapture(e: MouseEvent) {
+  // Prevent accidental clicks (e.g., ImagePlaceholder dots) after a drag.
+  if (drag?.moved) { e.preventDefault(); e.stopPropagation(); }
+}
 </script>
 
 <template>
@@ -12,7 +38,7 @@ const { t } = useLocale();
     <div class="container">
       <div class="section-header">
         <h2>{{ t(ui.navExtra) }}</h2>
-        <span class="section-anchor">#activities</span>
+        <span class="section-anchor">#clubs</span>
       </div>
       <ol class="clubs">
         <li v-for="c in clubs" :key="c.id">
@@ -24,7 +50,15 @@ const { t } = useLocale();
             <span class="date">{{ c.date }}</span>
           </div>
           <p>{{ t(c.description) }}</p>
-          <div v-if="c.media" class="gallery">
+          <div
+            v-if="c.media"
+            class="gallery"
+            @pointerdown="onPointerDown"
+            @pointermove="onPointerMove"
+            @pointerup="onPointerUp"
+            @pointercancel="onPointerUp"
+            @click.capture="onClickCapture"
+          >
             <div
               v-for="(src, i) in Array.isArray(c.media) ? c.media : [c.media]"
               :key="src"
@@ -58,14 +92,21 @@ h3 { margin: 0; font-size: 1rem; font-weight: 600; }
   white-space: nowrap;
 }
 p { margin: 0.25rem 0 0; color: var(--fg); font-size: 0.92rem; }
+
 .gallery {
   margin-top: 0.6rem;
   display: flex;
   gap: 0.6rem;
   overflow-x: auto;
-  scrollbar-width: thin;
-  padding-bottom: 0.3rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  touch-action: pan-x pan-y;
+  user-select: none;
+  cursor: grab;
 }
+.gallery::-webkit-scrollbar { display: none; }
+.gallery.dragging { cursor: grabbing; scroll-behavior: auto; }
 .media-item {
   flex: 0 0 auto;
   width: 280px;
@@ -73,5 +114,6 @@ p { margin: 0.25rem 0 0; color: var(--fg); font-size: 0.92rem; }
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--border);
+  scroll-snap-align: start;
 }
 </style>

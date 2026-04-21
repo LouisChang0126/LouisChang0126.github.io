@@ -8,7 +8,9 @@
       "PowerShell($envs = @\\(\"C:\\\\Users\\\\qulip\\\\miniconda3\"\\) + \\(Get-ChildItem \"C:\\\\Users\\\\qulip\\\\miniconda3\\\\envs\" -Directory\\).FullName; foreach \\($e in $envs\\) { $exe1 = Join-Path $e \"Scripts\\\\yt-dlp.exe\"; $exe2 = Join-Path $e \"yt-dlp.exe\"; $name = if \\($e -eq \"C:\\\\Users\\\\qulip\\\\miniconda3\"\\) { \"base\" } else { Split-Path $e -Leaf }; if \\(\\(Test-Path $exe1\\) -or \\(Test-Path $exe2\\)\\) { Write-Output \"YES  $name\" } else { Write-Output \"no   $name\" } })",
       "PowerShell($envs = @\\(\"C:\\\\Users\\\\qulip\\\\miniconda3\"\\) + \\(Get-ChildItem \"C:\\\\Users\\\\qulip\\\\miniconda3\\\\envs\" -Directory\\).FullName; foreach \\($e in $envs\\) { $name = if \\($e -eq \"C:\\\\Users\\\\qulip\\\\miniconda3\"\\) { \"base\" } else { Split-Path $e -Leaf }; $sp = Join-Path $e \"Lib\\\\site-packages\\\\yt_dlp\"; if \\(Test-Path $sp\\) { Write-Output \"YES  $name  \\($sp\\)\" } else { Write-Output \"no   $name\" } })",
       "PowerShell(& \"C:\\\\Users\\\\qulip\\\\miniconda3\\\\Scripts\\\\conda.exe\" install -n base -c conda-forge yt-dlp -y)",
-      "PowerShell(& \"C:\\\\Users\\\\qulip\\\\miniconda3\\\\Scripts\\\\yt-dlp.exe\" --version)"
+      "PowerShell(& \"C:\\\\Users\\\\qulip\\\\miniconda3\\\\Scripts\\\\yt-dlp.exe\" --version)",
+      "Bash(gh --version)",
+      "Bash(gh api *)"
     ]
   }
 }

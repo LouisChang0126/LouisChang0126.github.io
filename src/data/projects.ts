@@ -2,6 +2,36 @@ import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    id: 'garmin-hazard',
+    image: ['/projects/garmin-hazard.jpg', '/projects/garmin-hazard-2.mp4'],
+    date: 'Jul. 2025 – Feb. 2026',
+    title: {
+      en: 'Road-Hazard Segmentation — Garmin AOEM',
+      zh: '車道危險物分割 — Garmin AOEM',
+    },
+    summary: {
+      en: 'In-vehicle driver safety segmentation with SAM3 auto-annotation and diffusion-based data synthesis.',
+      zh: '車用駕駛安全分割模型：以 SAM3 自動化標註並用擴散模型合成難樣本。',
+    },
+    bullets: [
+      {
+        en: 'Automated the annotation pipeline with SAM3, cutting manual labeling cost.',
+        zh: '使用 SAM3 自動化標註流程，大幅降低人工標注成本。',
+      },
+      {
+        en: 'Synthesized hazardous-scenario training samples via diffusion models to cover rare cases.',
+        zh: '以擴散模型合成罕見危險情境的訓練樣本，補足長尾資料。',
+      },
+      {
+        en: 'Accelerated the overall training workflow by 135%.',
+        zh: '整體訓練流程加速 135%。',
+      },
+    ],
+    tags: ['SAM3', 'Diffusion', 'Segmentation', 'Edge AI'],
+    links: [{ label: 'Garmin', url: 'https://www.garmin.com.tw/', icon: 'link' }],
+    featured: true,
+  },
+  {
     id: 'safmc',
     image: '/projects/safmc.jpg',
     date: 'Mar. 2025',
@@ -33,36 +63,6 @@ export const projects: Project[] = [
       { label: 'Description', url: 'https://github.com/HCIS-Lab/safmc-d2-description', icon: 'github' },
       { label: 'SAFMC', url: 'https://www.safmc.com.sg/', icon: 'link' },
     ],
-    featured: true,
-  },
-  {
-    id: 'garmin-hazard',
-    image: ['/projects/garmin-hazard.jpg', '/projects/garmin-hazard-2.gif'],
-    date: 'Jul. 2025 – Feb. 2026',
-    title: {
-      en: 'Road-Hazard Segmentation — Garmin AOEM',
-      zh: '車道危險物分割 — Garmin AOEM',
-    },
-    summary: {
-      en: 'In-vehicle driver safety segmentation with SAM3 auto-annotation and diffusion-based data synthesis.',
-      zh: '車用駕駛安全分割模型：以 SAM3 自動化標註並用擴散模型合成難樣本。',
-    },
-    bullets: [
-      {
-        en: 'Automated the annotation pipeline with SAM3, cutting manual labeling cost.',
-        zh: '使用 SAM3 自動化標註流程，大幅降低人工標注成本。',
-      },
-      {
-        en: 'Synthesized hazardous-scenario training samples via diffusion models to cover rare cases.',
-        zh: '以擴散模型合成罕見危險情境的訓練樣本，補足長尾資料。',
-      },
-      {
-        en: 'Accelerated the overall training workflow by 135%.',
-        zh: '整體訓練流程加速 135%。',
-      },
-    ],
-    tags: ['SAM3', 'Diffusion', 'Segmentation', 'Edge AI'],
-    links: [{ label: 'Garmin', url: 'https://www.garmin.com.tw/', icon: 'link' }],
     featured: true,
   },
   {
@@ -121,6 +121,32 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: 'church-bot',
+    image: '/projects/church-bot.png',
+    date: 'Jul. 2023 – Present',
+    title: {
+      en: 'Church Service Scheduling LINE Bot',
+      zh: '教會服事排班 LINE Bot',
+    },
+    summary: {
+      en: 'End-to-end scheduling serving 30+ members in production for 2+ years; LLM agent auto-assigns shifts.',
+      zh: '端到端排班系統，30+ 位同工正式使用滿兩年；LLM agent 自動排班。',
+    },
+    bullets: [
+      {
+        en: 'Built LINE Bot for shift swap & reminders + web dashboard; backed by GCP Cloud Functions and Firestore.',
+        zh: 'LINE Bot 負責換班、提醒；Web 儀表板負責瀏覽與編輯；後端使用 GCP Cloud Functions 與 Firestore。',
+      },
+      {
+        en: 'LLM agent auto-generates and modifies assignments from CSV under custom rules — reduced manual scheduling time by 85%.',
+        zh: 'LLM agent 依規則（避免連排、每週上限）自動從 CSV 生成並調整排班，手動作業減少 85%。',
+      },
+    ],
+    tags: ['LINE Bot', 'GCP', 'Firestore', 'LLM Agent'],
+    links: [{ label: 'GitHub', url: 'https://github.com/LouisChang0126/BOL-Line-Bot-3.0', icon: 'github' }],
+    featured: true,
+  },
+  {
     id: 'make-ntu',
     image: [
       '/projects/make-ntu.jpg',
@@ -148,33 +174,7 @@ export const projects: Project[] = [
       },
     ],
     tags: ['Robot Car', 'LLM', 'STT/TTS', 'Mechanical Design'],
-    featured: false,
-  },
-  {
-    id: 'church-bot',
-    image: '/projects/church-bot.png',
-    date: 'Jul. 2023 – Present',
-    title: {
-      en: 'Church Service Scheduling LINE Bot',
-      zh: '教會服事排班 LINE Bot',
-    },
-    summary: {
-      en: 'End-to-end scheduling serving 30+ members in production for 2+ years; LLM agent auto-assigns shifts.',
-      zh: '端到端排班系統，30+ 位同工正式使用滿兩年；LLM agent 自動排班。',
-    },
-    bullets: [
-      {
-        en: 'Built LINE Bot for shift swap & reminders + web dashboard; backed by GCP Cloud Functions and Firestore.',
-        zh: 'LINE Bot 負責換班、提醒；Web 儀表板負責瀏覽與編輯；後端使用 GCP Cloud Functions 與 Firestore。',
-      },
-      {
-        en: 'LLM agent auto-generates and modifies assignments from CSV under custom rules — reduced manual scheduling time by 85%.',
-        zh: 'LLM agent 依規則（避免連排、每週上限）自動從 CSV 生成並調整排班，手動作業減少 85%。',
-      },
-    ],
-    tags: ['LINE Bot', 'GCP', 'Firestore', 'LLM Agent'],
-    links: [{ label: 'GitHub', url: 'https://github.com/LouisChang0126/BOL-Line-Bot-3.0', icon: 'github' }],
-    featured: false,
+    featured: true,
   },
   {
     id: 'garmin-detection',
@@ -200,27 +200,6 @@ export const projects: Project[] = [
     ],
     tags: ['YOLOX', 'D-FINE', 'Semi-Supervised', 'Quantization'],
     links: [{ label: 'Garmin', url: 'https://www.garmin.com.tw/', icon: 'link' }],
-    featured: true,
-  },
-  {
-    id: 'macro-kbd',
-    image: '/projects/macro-kbd.jpg',
-    date: 'Apr. 2023',
-    title: {
-      en: 'Arduino Macro Keyboard',
-      zh: 'Arduino 巨集鍵盤',
-    },
-    summary: {
-      en: 'Customizable macro keyboard on Arduino Pro Micro; taught to 61 students across two club courses.',
-      zh: '基於 Arduino Pro Micro 的可自訂巨集鍵盤；於社課中教導過 61 位同學完成作品。',
-    },
-    bullets: [
-      {
-        en: 'Designed hardware + firmware; instructed as Teaching Officer of NYCU Makereal Club.',
-        zh: '負責硬體與韌體設計；於陽明交大創客社擔任教學幹部。',
-      },
-    ],
-    tags: ['Arduino', 'Firmware', 'HID'],
     featured: false,
   },
   {
@@ -255,6 +234,27 @@ export const projects: Project[] = [
       { label: 'GitHub', url: 'https://github.com/LouisChang0126/geoguessr_in_nycu', icon: 'github' },
       { label: 'Meichu', url: 'https://2024.meichuhackathon.org/', icon: 'link' },
     ],
-    featured: true,
+    featured: false,
+  },
+  {
+    id: 'macro-kbd',
+    image: '/projects/macro-kbd.jpg',
+    date: 'Apr. 2023',
+    title: {
+      en: 'Arduino Macro Keyboard',
+      zh: 'Arduino 巨集鍵盤',
+    },
+    summary: {
+      en: 'Customizable macro keyboard on Arduino Pro Micro; taught to 61 students across two club courses.',
+      zh: '基於 Arduino Pro Micro 的可自訂巨集鍵盤；於社課中教導過 61 位同學完成作品。',
+    },
+    bullets: [
+      {
+        en: 'Designed hardware + firmware; instructed as Teaching Officer of NYCU Makereal Club.',
+        zh: '負責硬體與韌體設計；於陽明交大創客社擔任教學幹部。',
+      },
+    ],
+    tags: ['Arduino', 'Firmware', 'HID'],
+    featured: false,
   },
 ];

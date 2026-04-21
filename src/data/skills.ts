@@ -3,11 +3,11 @@ import type { SkillGroup } from '@/types';
 export const skills: SkillGroup[] = [
   {
     category: { en: 'Languages', zh: '程式語言' },
-    items: ['Python', 'C/C++', 'JavaScript', 'TypeScript', 'HTML', 'PHP'],
+    items: ['Python', 'C/C++', 'JavaScript', 'HTML', 'PHP'],
   },
   {
     category: { en: 'ML / DL', zh: '機器 / 深度學習' },
-    items: ['PyTorch', 'TensorFlow', 'ONNX', 'OpenCV', 'scikit-learn', 'Hugging Face', 'Whisper (STT)'],
+    items: ['PyTorch', 'TensorFlow', 'ONNX', 'OpenCV', 'scikit-learn', 'Hugging Face', 'Whisper(STT)'],
   },
   {
     category: { en: 'Computer Vision', zh: '電腦視覺' },
@@ -15,10 +15,10 @@ export const skills: SkillGroup[] = [
   },
   {
     category: { en: 'Robotics', zh: '機器人' },
-    items: ['ROS2', 'PX4', 'Gazebo', 'Universal Manipulation Interface', 'Stretch3'],
+    items: ['ROS2', 'PX4', 'Gazebo', 'Universal Manipulation Interface', 'Stretch3', 'RoboCasa', 'Diffusion Policy'],
   },
   {
-    category: { en: 'LLM / GenAI', zh: 'LLM 與生成式 AI' },
+    category: { en: 'LLM / GenAI', zh: 'LLM 與生成式AI' },
     items: ['Vibe Coding', 'Fine-tuning LLMs', 'Model Routing', 'LLM API Integration', 'MCP Design'],
   },
   {
@@ -26,7 +26,7 @@ export const skills: SkillGroup[] = [
     items: ['GCP Cloud Functions', 'Firestore', 'Cloud Scheduler', 'LINE Bot SDK'],
   },
   {
-    category: { en: 'Tools', zh: '工具' },
+    category: { en: 'Tools', zh: '技能' },
     items: ['Git', 'Linux', 'Arduino', '3D Modeling', 'SMT Soldering'],
   },
 ];
