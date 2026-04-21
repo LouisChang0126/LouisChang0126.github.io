@@ -24,13 +24,19 @@ const { t } = useLocale();
             <span class="date">{{ c.date }}</span>
           </div>
           <p>{{ t(c.description) }}</p>
-          <div v-if="c.media" class="media">
-            <ImagePlaceholder
-              :src="c.media"
-              :alt="t(c.name)"
-              :label="t(c.name)"
-              aspect-ratio="4 / 3"
-            />
+          <div v-if="c.media" class="gallery">
+            <div
+              v-for="(src, i) in Array.isArray(c.media) ? c.media : [c.media]"
+              :key="src"
+              class="media-item"
+            >
+              <ImagePlaceholder
+                :src="src"
+                :alt="`${t(c.name)} ${i + 1}`"
+                :label="t(c.name)"
+                aspect-ratio="4 / 3"
+              />
+            </div>
           </div>
         </li>
       </ol>
@@ -52,10 +58,18 @@ h3 { margin: 0; font-size: 1rem; font-weight: 600; }
   white-space: nowrap;
 }
 p { margin: 0.25rem 0 0; color: var(--fg); font-size: 0.92rem; }
-.media {
+.gallery {
   margin-top: 0.6rem;
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding-bottom: 0.3rem;
+}
+.media-item {
+  flex: 0 0 auto;
   width: 280px;
-  max-width: 100%;
+  max-width: 90%;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--border);

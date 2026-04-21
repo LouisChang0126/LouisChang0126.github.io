@@ -67,7 +67,7 @@ export const projects: Project[] = [
   },
   {
     id: 'umi',
-    image: '/projects/umi.jpg',
+    image: ['/projects/umi.png', '/projects/umi-2.png'],
     date: 'Fall 2024 – Present',
     title: {
       en: 'Real-to-Sim Manipulation Pipeline — HCIS Lab',
@@ -212,7 +212,7 @@ export const projects: Project[] = [
     },
     summary: {
       en: 'Customizable macro keyboard on Arduino Pro Micro; taught to 61 students across two club courses.',
-      zh: '基於 Arduino Pro Micro 的可自訂巨集鍵盤；於社課中教授 61 位同學。',
+      zh: '基於 Arduino Pro Micro 的可自訂巨集鍵盤；於社課中教導過 61 位同學完成作品。',
     },
     bullets: [
       {
@@ -225,11 +225,16 @@ export const projects: Project[] = [
   },
   {
     id: 'meichu',
-    image: ['/projects/meichu.jpg', '/projects/meichu-2.jpg'],
+    image: [
+      '/projects/meichu.jpg',
+      '/projects/meichu-2.jpg',
+      '/projects/meichu-3.jpg',
+      '/projects/meichu-4.jpg',
+    ],
     date: 'Aug. 2024',
     title: {
       en: 'GeoGuessr-in-NYCU — Meichu Hackathon (LINE Taiwan, 3rd Place)',
-      zh: 'GeoGuessr in NYCU — 梅竹黑客松（LINE 台灣組第三名）',
+      zh: 'GeoGuessr in NYCU — 梅竹黑客松（LINE台灣組 第三名）',
     },
     summary: {
       en: 'A LINE Bot that replaces indoor GPS with a building classifier for campus navigation.',

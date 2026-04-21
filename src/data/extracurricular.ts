@@ -19,8 +19,14 @@ export const clubs: ClubItem[] = [
     date: 'Sep. 2022 – Jan. 2024',
     description: {
       en: 'Developed hands-on maker projects (Micro Keyboard, Quadruped Robot, Light Cube) and instructed members in 3D modeling, laser cutting, 3D printing, and Arduino.',
-      zh: '設計動手作專案（巨集鍵盤、四足機器人、光立方體），並教授 3D 建模、雷射切割、3D 列印與 Arduino。',
+      zh: '設計動手作專案（巨集鍵盤、四足機器人、光立方體），並精通 3D 建模、雷射切割、3D 列印與 Arduino。',
     },
+    media: [
+      '/extracurricular/makereal.jpg',
+      '/extracurricular/makereal-2.jpg',
+      '/extracurricular/makereal-3.mp4',
+      '/extracurricular/makereal-4.jpg',
+    ],
   },
   {
     id: 'innovation',

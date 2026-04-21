@@ -9,16 +9,12 @@ const props = withDefaults(defineProps<{
   rounded?: boolean;
   interval?: number;
   fit?: 'cover' | 'contain';
-  hoverSrc?: string;
 }>(), {
   aspectRatio: '16 / 9',
   rounded: false,
   interval: 4000,
   fit: 'cover',
-  hoverSrc: '',
 });
-
-const hoverFailed = ref(false);
 
 const sources = computed(() => Array.isArray(props.src) ? props.src : [props.src]);
 const idx = ref(0);
@@ -91,14 +87,6 @@ const go = (i: number) => {
       </div>
     </template>
 
-    <img
-      v-if="hoverSrc && !hoverFailed"
-      class="hover-img"
-      :src="hoverSrc"
-      :alt="alt"
-      @error="hoverFailed = true"
-    />
-
     <div v-if="sources.length > 1" class="dots" role="tablist">
       <button
         v-for="(_, i) in sources"
@@ -131,13 +119,6 @@ const go = (i: number) => {
   object-fit: var(--fit, cover);
   display: block;
 }
-.hover-img {
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 1;
-  pointer-events: none;
-}
-.img-wrap:hover .hover-img { opacity: 1; }
 .placeholder {
   position: absolute;
   inset: 0;

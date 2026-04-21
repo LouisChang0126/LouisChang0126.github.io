@@ -79,7 +79,7 @@ export const experience: ExperienceItem[] = [
     bullets: [
       {
         en: 'Designed a supervised-learning programming lab comparing CNN vs. decision-tree classifiers for 100+ undergraduates in Prof. Yi-Ting Chen & Prof. Yu-Chun Yen’s class.',
-        zh: '為陳奕廷、嚴雨純兩位教授的人工智慧概論課設計監督式學習實作作業，比較 CNN 與決策樹，服務 100+ 位大學部學生。',
+        zh: '在陳奕廷、顏羽君兩位教授的人工智慧概論擔任助教，為100+位大學生設計監督式學習程式作業，比較 CNN 與決策樹。',
       },
     ],
   },

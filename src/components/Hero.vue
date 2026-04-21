@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useLocale } from '@/composables/useLocale';
+import { useTheme } from '@/composables/useTheme';
 import { profile } from '@/data/profile';
 import { about } from '@/data/about';
 import { ui } from '@/data/messages';
 import ImagePlaceholder from './ImagePlaceholder.vue';
+
+const { theme } = useTheme();
+const photoSrc = computed(() => theme.value === 'dark' ? '/profile_dark.jpg' : profile.photo);
 
 const { t } = useLocale();
 
@@ -28,8 +32,7 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
     <div class="container hero-inner">
       <div class="photo">
         <ImagePlaceholder
-          :src="profile.photo"
-          hover-src="/easteregg.jpg"
+          :src="photoSrc"
           :alt="t(profile.name)"
           label="Profile photo"
           aspect-ratio="1 / 1.2"

@@ -15,10 +15,10 @@ import Footer from './components/Footer.vue';
   <NavBar />
   <main>
     <Hero />
-    <Publications />
-    <Projects />
     <Experience />
     <Awards />
+    <Publications />
+    <Projects />
     <Education />
     <Skills />
     <Extracurricular />
