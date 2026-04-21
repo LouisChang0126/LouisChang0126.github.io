@@ -67,7 +67,12 @@ export const projects: Project[] = [
   },
   {
     id: 'umi',
-    image: ['/projects/umi.png', '/projects/umi-2.png'],
+    image: [
+      '/projects/umi.png',
+      '/projects/umi-2.png',
+      '/projects/umi-3.png',
+      '/projects/umi-4.png',
+    ],
     date: 'Fall 2024 – Present',
     title: {
       en: 'Real-to-Sim Manipulation Pipeline — HCIS Lab',
