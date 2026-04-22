@@ -10,7 +10,7 @@ export const ui: Record<string, Localized> = {
   navSkills: { en: 'Skills', zh: '技能' },
   navExtra: { en: 'Clubs', zh: '社團' },
 
-  downloadCV: { en: 'Download CV', zh: '下載履歷' },
+  downloadCV: { en: 'CV', zh: '履歷' },
   email: { en: 'Email', zh: '信箱' },
   mobile: { en: 'Mobile', zh: '手機' },
   github: { en: 'GitHub', zh: 'GitHub' },

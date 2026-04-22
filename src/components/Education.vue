@@ -80,10 +80,11 @@ h3 { margin: 0; font-size: 1rem; font-weight: 700; }
 .coursework-toggle:hover .chevron { color: var(--accent); }
 .coursework-toggle h4 { margin: 0; font-size: 0.92rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
 .chevron {
-  font-size: 0.8rem;
+  font-size: 1.8rem;
   color: var(--muted);
   display: inline-block;
   transition: transform 0.2s ease, color 0.15s ease;
+  line-height: 1;
 }
 .chevron.open { transform: rotate(90deg); }
 .groups { display: flex; flex-direction: column; gap: 0.6rem; }

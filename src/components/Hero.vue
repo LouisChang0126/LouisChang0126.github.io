@@ -18,7 +18,7 @@ let timer: number | undefined;
 onMounted(() => {
   timer = window.setInterval(() => {
     idx.value = (idx.value + 1) % profile.identities.length;
-  }, 3000);
+  }, 2500);
 });
 onUnmounted(() => {
   if (timer) window.clearInterval(timer);

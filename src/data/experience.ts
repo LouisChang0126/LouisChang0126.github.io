@@ -52,11 +52,11 @@ export const experience: ExperienceItem[] = [
     bullets: [
       {
         en: 'Led 7-member team researching physical AI on a mobile manipulator in Fall 2024.',
-        zh: '2024 年秋季帶領 7 人團隊，於移動式機械手臂上研究 physical AI。',
+        zh: '2024年秋季帶領 7 人團隊，於移動式機械手臂上研究 physical AI。',
       },
       {
-        en: 'Extended work into autonomous multi-drone systems (Spring 2025): synchronized pick-and-place across 4 UAVs with ROS2 + PX4 + Gazebo.',
-        zh: '2025 年春延伸至多無人機自主系統：以 ROS2 + PX4 + Gazebo 實現 4 UAV 同步抓取。',
+        en: 'Spring 2025 participation in autonomous multi-drone systems: synchronized pick-and-place across 4 UAVs with ROS2 + PX4 + Gazebo.',
+        zh: '2025年春季參與多無人機自主系統：以 ROS2 + PX4 + Gazebo 實現 4 UAV 同步 pick & place。',
       },
       {
         en: 'Built a real-to-sim robot arm pipeline (UMI → RoboCasa → Diffusion Policy); adopted as FunAI 2025 curriculum.',
