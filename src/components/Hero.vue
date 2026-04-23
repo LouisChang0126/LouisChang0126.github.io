@@ -46,24 +46,23 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
           </Transition>
         </div>
 
-        <div class="contacts">
-          <a :href="`mailto:${profile.email}`" class="link-pill">
-            <span>✉</span> {{ profile.email }}
-          </a>
-          <a :href="profile.githubUrl" target="_blank" rel="noopener" class="link-pill">
-            <img src="/github.svg" alt="" width="14" height="14" class="gh-icon" /> {{ profile.github }}
-          </a>
-          <span class="link-pill no-hover">
-            <span>📱</span> {{ profile.mobile }}
-          </span>
-          <a :href="profile.resume" target="_blank" rel="noopener" class="link-pill cv">
-            <span>📄</span> {{ t(ui.downloadCV) }}
-          </a>
-        </div>
-
         <div class="bio">
           <p v-for="(p, i) in about.paragraphs" :key="i">{{ t(p) }}</p>
         </div>
+      </div>
+      <div class="contacts">
+        <a :href="`mailto:${profile.email}`" class="link-pill">
+          <span>✉</span> {{ profile.email }}
+        </a>
+        <a :href="profile.githubUrl" target="_blank" rel="noopener" class="link-pill">
+          <img src="/github.svg" alt="" width="14" height="14" class="gh-icon" /> {{ profile.github }}
+        </a>
+        <span class="link-pill no-hover">
+          <span>📱</span> {{ profile.mobile }}
+        </span>
+        <a :href="profile.resume" target="_blank" rel="noopener" class="link-pill">
+          <span>📄</span> {{ t(ui.downloadCV) }}
+        </a>
       </div>
     </div>
   </header>
@@ -76,11 +75,11 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
 }
 .hero-inner {
   display: grid;
-  grid-template-columns: 216px 1fr;
+  grid-template-columns: 194px 1fr auto;
   gap: 2rem;
-  align-items: center;
+  align-items: start;
 }
-.photo { width: 216px; }
+.photo { width: 194px; }
 
 .intro h1 {
   font-size: 2.1rem;
@@ -106,19 +105,16 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
 
 .contacts {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.1rem;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-start;
+  /* h1 (~2.9rem) + identity-slot (~2.9rem) + bio margin-top (1.2rem) */
+  margin-top: 5.5rem;
 }
 .link-pill .gh-icon {
   filter: var(--gh-filter, none);
 }
 [data-theme="dark"] .gh-icon { filter: invert(1); }
-.link-pill.cv {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-soft);
-}
-.link-pill.cv:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 .link-pill.no-hover { cursor: default; }
 .link-pill.no-hover:hover { border-color: var(--border); color: var(--fg); }
 
@@ -133,9 +129,19 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
 }
 .bio p:last-child { margin-bottom: 0; }
 
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 194px 1fr; }
+  .contacts {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.1rem;
+    margin-top: 0;
+  }
+}
 @media (max-width: 640px) {
   .hero-inner { grid-template-columns: 1fr; gap: 1.2rem; }
-  .photo { width: 168px; justify-self: center; }
+  .photo { width: 151px; justify-self: center; }
   .intro { text-align: left; }
   .intro h1 { font-size: 1.75rem; }
 }

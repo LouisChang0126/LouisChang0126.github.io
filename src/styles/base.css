@@ -25,7 +25,7 @@ code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-si
 }
 
 section {
-  padding: 3.5rem 0 1rem;
+  padding: 2.5rem 0 1rem;
 }
 @media (max-width: 560px) {
   section { padding: 2.5rem 0 0.5rem; }
