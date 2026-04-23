@@ -66,6 +66,7 @@ export interface MinistryItem {
   image: string | string[];
   bullets: Localized[];
   url?: string;
+  date?: string;
 }
 
 export interface ClubItem {

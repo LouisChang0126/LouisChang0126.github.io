@@ -4,6 +4,7 @@ export const ministries: MinistryItem[] = [
   {
     id: 'bol',
     name: { en: 'Taipei Bread of Life - North', zh: '台北靈糧堂 - 北區會堂' },
+    date: '2014 – Present',
     image: [
       '/ministry/bol.jpg',
       '/ministry/bol-2.jpg',
@@ -23,6 +24,7 @@ export const ministries: MinistryItem[] = [
   {
     id: 'revive',
     name: { en: 'Revive NYCU', zh: '陽明交大 - 復興禱告會' },
+    date: '2024 – Present',
     image: [
       '/ministry/revive.jpg',
       '/ministry/revive-2.jpg',
@@ -46,6 +48,7 @@ export const ministries: MinistryItem[] = [
   {
     id: 'koinonia',
     name: { en: 'Koinonia NYCU', zh: '陽明交大 - 柏克萊團契' },
+    date: '2023 – Present',
     image: [
       '/ministry/koinonia.jpg',
       '/ministry/koinonia-2.jpg',
@@ -59,6 +62,21 @@ export const ministries: MinistryItem[] = [
       {
         en: 'the root Cell Group',
         zh: 'the root小組',
+      },
+    ],
+  },
+  {
+    id: 'ccc',
+    name: { en: 'NYCU CCC', zh: '陽明交大 - 學園團契' },
+    image: [
+      '/ministry/ccc.jpg',
+      '/ministry/ccc-2.jpg',
+      '/ministry/ccc-3.jpg',
+    ],
+    bullets: [
+      {
+        en: 'just a little member🤫',
+        zh: '窩只是個小社員🤫',
       },
     ],
   },

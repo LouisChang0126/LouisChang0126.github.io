@@ -2,7 +2,7 @@ import type { Localized } from '@/types';
 
 export const ui: Record<string, Localized> = {
   navHome: { en: 'Home', zh: '首頁' },
-  navMinistry: { en: 'Ministry', zh: '事工' },
+  navMinistry: { en: 'Ministry & Fellowship', zh: '服事&團契' },
   navPublications: { en: 'Publications', zh: '論文' },
   navProjects: { en: 'Projects', zh: '專案' },
   navExperience: { en: 'Experience', zh: '經歷' },

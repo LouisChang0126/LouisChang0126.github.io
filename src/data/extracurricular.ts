@@ -2,17 +2,6 @@ import type { ClubItem } from '@/types';
 
 export const clubs: ClubItem[] = [
   {
-    id: 'koinonia',
-    name: { en: 'NYCU Koinonia Club', zh: '陽明交大團契' },
-    role: { en: 'President', zh: '社長' },
-    date: 'Sep. 2022 – Jun. 2026',
-    description: {
-      en: 'Organized recurring events including English Table, Club Day, Xmas Party, and Poetry Performance.',
-      zh: '籌辦 English Table、社團博覽會、聖誕晚會、詩文展演等定期活動。',
-    },
-    media: ['/extracurricular/koinonia.jpg', '/extracurricular/koinonia-2.jpg'],
-  },
-  {
     id: 'makereal',
     name: { en: 'NYCU Makereal Club', zh: '陽明交大創客社' },
     role: { en: 'Teaching Officer', zh: '教學幹部' },
