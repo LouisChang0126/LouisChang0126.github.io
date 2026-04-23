@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { useLocale } from '@/composables/useLocale';
 import { projects } from '@/data/projects';
 import { ui } from '@/data/messages';
@@ -9,7 +9,23 @@ const { t } = useLocale();
 const showAll = ref(false);
 const featured = computed(() => projects.filter((p) => p.featured));
 const others = computed(() => projects.filter((p) => !p.featured));
-const displayed = computed(() => (showAll.value ? projects : featured.value));
+
+const isMobile = ref(false);
+let mql: MediaQueryList | null = null;
+const onMqlChange = (e: MediaQueryListEvent) => { isMobile.value = e.matches; };
+onMounted(() => {
+  mql = window.matchMedia('(max-width: 640px)');
+  isMobile.value = mql.matches;
+  mql.addEventListener('change', onMqlChange);
+});
+onUnmounted(() => {
+  mql?.removeEventListener('change', onMqlChange);
+});
+
+const displayed = computed(() => {
+  if (isMobile.value) return projects;
+  return showAll.value ? projects : featured.value;
+});
 </script>
 
 <template>
@@ -25,7 +41,7 @@ const displayed = computed(() => (showAll.value ? projects : featured.value));
         <ProjectCard v-for="p in displayed" :key="p.id" :proj="p" />
       </div>
     </div>
-    <div class="container">
+    <div v-if="!isMobile" class="container">
       <button
         v-if="others.length"
         class="toggle"

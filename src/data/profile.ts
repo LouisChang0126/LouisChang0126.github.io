@@ -2,7 +2,7 @@ import type { Localized } from '@/types';
 
 export const profile = {
   photo: '/profile.jpg',
-  name: { en: 'Louis (Chia-Jui) Chang', zh: '張家睿 Louis Chang' } as Localized,
+  name: { en: 'Louis\n(Chia-Jui)\nChang', zh: '張家睿\nLouis Chang' } as Localized,
   identities: [
     { en: 'A passionate Christian', zh: '火熱的基督徒' },
     { en: 'A computer vision researcher', zh: '電腦視覺研究者' },

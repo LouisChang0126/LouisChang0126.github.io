@@ -45,10 +45,9 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
             <p class="identity" :key="idx">{{ t(currentIdentity) }}</p>
           </Transition>
         </div>
-
-        <div class="bio">
-          <p v-for="(p, i) in about.paragraphs" :key="i">{{ t(p) }}</p>
-        </div>
+      </div>
+      <div class="bio">
+        <p v-for="(p, i) in about.paragraphs" :key="i">{{ t(p) }}</p>
       </div>
       <div class="contacts">
         <a :href="`mailto:${profile.email}`" class="link-pill">
@@ -76,10 +75,17 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
 .hero-inner {
   display: grid;
   grid-template-columns: 194px 1fr auto;
-  gap: 2rem;
+  grid-template-areas:
+    "photo intro    ."
+    "photo bio      contacts";
+  column-gap: 2rem;
+  row-gap: 1.2rem;
   align-items: start;
 }
-.photo { width: 194px; }
+.photo    { grid-area: photo; width: 194px; }
+.intro    { grid-area: intro; }
+.bio      { grid-area: bio; }
+.contacts { grid-area: contacts; }
 
 .intro h1 {
   font-size: 2.1rem;
@@ -108,8 +114,6 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
   flex-direction: column;
   gap: 0.4rem;
   align-items: flex-start;
-  /* h1 (~2.9rem) + identity-slot (~2.9rem) + bio margin-top (1.2rem) */
-  margin-top: 5.5rem;
 }
 .link-pill .gh-icon {
   filter: var(--gh-filter, none);
@@ -118,9 +122,6 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
 .link-pill.no-hover { cursor: default; }
 .link-pill.no-hover:hover { border-color: var(--border); color: var(--fg); }
 
-.bio {
-  margin-top: 1.2rem;
-}
 .bio p {
   color: var(--fg);
   line-height: 1.75;
@@ -130,19 +131,34 @@ const currentIdentity = computed(() => profile.identities[idx.value]);
 .bio p:last-child { margin-bottom: 0; }
 
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 194px 1fr; }
+  .hero-inner {
+    grid-template-columns: 194px 1fr;
+    grid-template-areas:
+      "photo intro"
+      "photo bio"
+      "contacts contacts";
+  }
   .contacts {
-    grid-column: 1 / -1;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.1rem;
-    margin-top: 0;
   }
 }
 @media (max-width: 640px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 1.2rem; }
-  .photo { width: 151px; justify-self: center; }
-  .intro { text-align: left; }
-  .intro h1 { font-size: 1.75rem; }
+  .hero-inner {
+    grid-template-columns: 130px 1fr;
+    grid-template-areas:
+      "photo intro"
+      "bio   bio"
+      "contacts contacts";
+    column-gap: 1rem;
+    row-gap: 1rem;
+  }
+  .photo { width: 130px; }
+  .intro h1 {
+    white-space: pre-line;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
 }
 </style>

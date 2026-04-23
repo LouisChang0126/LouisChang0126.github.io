@@ -68,6 +68,7 @@ export const ministries: MinistryItem[] = [
   {
     id: 'ccc',
     name: { en: 'NYCU CCC', zh: '陽明交大 - 學園團契' },
+    date: '2024 – Present',
     image: [
       '/ministry/ccc.jpg',
       '/ministry/ccc-2.jpg',

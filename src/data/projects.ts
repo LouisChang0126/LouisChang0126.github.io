@@ -62,7 +62,7 @@ export const projects: Project[] = [
         zh: '於 HCIS Lab 開源；獲陽明交大資工專題競賽高級榮譽獎。',
       },
     ],
-    tags: ['ROS2', 'PX4', 'Gazebo', 'Drones', 'State Machine'],
+    tags: ['ROS2', 'PX4', 'Gazebo', 'Drones'],
     links: [
       { label: 'Application', url: 'https://github.com/HCIS-Lab/safmc-d2-application', icon: 'github' },
       { label: 'Description', url: 'https://github.com/HCIS-Lab/safmc-d2-description', icon: 'github' },
