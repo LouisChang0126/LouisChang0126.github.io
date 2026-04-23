@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
+import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue';
 
 const props = withDefaults(defineProps<{
   src: string | string[];
@@ -19,9 +19,11 @@ const props = withDefaults(defineProps<{
 const sources = computed(() => Array.isArray(props.src) ? props.src : [props.src]);
 const idx = ref(0);
 const failed = ref<Record<number, boolean>>({});
+const wrapper = ref<HTMLElement | null>(null);
 let timer: number | undefined;
 
 const isVideo = (s: string) => /\.(mp4|webm|mov)$/i.test(s);
+const currentIsVideo = computed(() => isVideo(sources.value[idx.value] ?? ''));
 
 const clearTimer = () => {
   if (timer !== undefined) {
@@ -31,41 +33,75 @@ const clearTimer = () => {
 };
 const startTimer = () => {
   clearTimer();
-  if (sources.value.length > 1) {
+  // Skip the auto-timer while a video plays — we advance on its `ended` event.
+  if (sources.value.length > 1 && !currentIsVideo.value) {
     timer = window.setInterval(() => {
       idx.value = (idx.value + 1) % sources.value.length;
     }, props.interval);
   }
 };
 
-onMounted(startTimer);
+const syncVideos = () => {
+  const wrap = wrapper.value;
+  if (!wrap) return;
+  wrap.querySelectorAll<HTMLVideoElement>('video[data-slide]').forEach((v) => {
+    const slideIdx = Number(v.dataset.slide);
+    if (slideIdx === idx.value) {
+      v.currentTime = 0;
+      v.play().catch(() => { /* autoplay may be blocked; ignore */ });
+    } else {
+      v.pause();
+    }
+  });
+};
+
+onMounted(() => {
+  startTimer();
+  nextTick(syncVideos);
+});
 onUnmounted(clearTimer);
 watch(() => props.src, () => {
   idx.value = 0;
   failed.value = {};
   startTimer();
+  nextTick(syncVideos);
+});
+watch(idx, () => {
+  startTimer();
+  nextTick(syncVideos);
 });
 
 const onError = (i: number) => { failed.value = { ...failed.value, [i]: true }; };
 
+const onVideoEnded = (i: number) => {
+  if (i !== idx.value || sources.value.length <= 1) return;
+  idx.value = (idx.value + 1) % sources.value.length;
+};
+
 const go = (i: number) => {
   idx.value = i;
-  startTimer();
 };
 </script>
 
 <template>
-  <div class="img-wrap" :class="{ rounded }" :style="{ aspectRatio, '--fit': fit }">
+  <div
+    ref="wrapper"
+    class="img-wrap"
+    :class="{ rounded }"
+    :style="{ aspectRatio, '--fit': fit }"
+  >
     <template v-for="(src, i) in sources" :key="src">
       <video
         v-if="isVideo(src) && !failed[i]"
         v-show="i === idx"
+        :data-slide="i"
         :src="src"
         autoplay
         muted
-        loop
+        :loop="sources.length === 1"
         playsinline
         @error="onError(i)"
+        @ended="onVideoEnded(i)"
       />
       <img
         v-else-if="!failed[i]"

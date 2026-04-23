@@ -3,7 +3,12 @@ import type { Project } from '@/types';
 export const projects: Project[] = [
   {
     id: 'garmin-hazard',
-    image: ['/projects/garmin-hazard.jpg', '/projects/garmin-hazard-2.mp4'],
+    image: [
+      '/projects/garmin-hazard.jpg',
+      '/projects/garmin-hazard-2.jpg',
+      '/projects/garmin-hazard-3.png',
+      '/projects/garmin-hazard-4.mp4',
+    ],
     date: 'Jul. 2025 – Feb. 2026',
     title: {
       en: 'Road-Hazard Segmentation — Garmin AOEM',
@@ -33,7 +38,7 @@ export const projects: Project[] = [
   },
   {
     id: 'safmc',
-    image: '/projects/safmc.jpg',
+    image: ['/projects/safmc.jpg', '/projects/safmc-2.mp4'],
     date: 'Mar. 2025',
     title: {
       en: 'Multi-Drones Autonomous Pick & Place — SAFMC 2025 (4th Place, D2)',
@@ -123,6 +128,10 @@ export const projects: Project[] = [
       },
     ],
     tags: ['Stretch3', 'Gripper', 'Multi-Modality', 'Mobile Manipulation'],
+    links: [
+      { label: 'CLAMP', url: 'https://emprise.cs.cornell.edu/clamp', icon: 'link' },
+      { label: 'Robot Utility Models', url: 'https://robotutilitymodels.com/', icon: 'link' },
+    ],
     featured: true,
   },
   {
@@ -130,12 +139,12 @@ export const projects: Project[] = [
     image: '/projects/church-bot.png',
     date: 'Jul. 2023 – Present',
     title: {
-      en: 'Church Service Scheduling LINE Bot',
-      zh: '教會服事排班 LINE Bot',
+      en: 'Church Service LINE Bot & Scheduling System',
+      zh: '教會服事LINE Bot & 排班系統',
     },
     summary: {
       en: 'End-to-end scheduling serving 30+ members in production for 2+ years; LLM agent auto-assigns shifts.',
-      zh: '端到端排班系統，30+ 位同工正式使用滿兩年；LLM agent 自動排班。',
+      zh: '端到端排班系統，30+位同工正式使用兩年以上；LLM agent 自動排班。',
     },
     bullets: [
       {

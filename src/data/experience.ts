@@ -70,7 +70,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     id: 'ta',
-    organization: 'Intro. to AI — NYCU',
+    organization: 'Intro. to AI (NYCU)',
     role: {
       en: 'Teaching Assistant',
       zh: '課程助教',
