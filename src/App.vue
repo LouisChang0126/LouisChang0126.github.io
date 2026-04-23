@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavBar from './components/NavBar.vue';
 import Hero from './components/Hero.vue';
+import Ministry from './components/Ministry.vue';
 import Publications from './components/Publications.vue';
 import Projects from './components/Projects.vue';
 import Experience from './components/Experience.vue';
@@ -15,6 +16,7 @@ import Footer from './components/Footer.vue';
   <NavBar />
   <main>
     <Hero />
+    <Ministry />
     <Experience />
     <Awards />
     <Publications />

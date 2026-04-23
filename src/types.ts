@@ -60,6 +60,14 @@ export interface SkillGroup {
   items: string[];
 }
 
+export interface MinistryItem {
+  id: string;
+  name: Localized;
+  image: string | string[];
+  bullets: Localized[];
+  url?: string;
+}
+
 export interface ClubItem {
   id: string;
   name: Localized;

@@ -7,6 +7,7 @@ import ThemeToggle from './ThemeToggle.vue';
 const { t } = useLocale();
 
 const links = [
+  { href: '#ministry', key: 'navMinistry' },
   { href: '#experience', key: 'navExperience' },
   { href: '#publications', key: 'navPublications' },
   { href: '#projects', key: 'navProjects' },
