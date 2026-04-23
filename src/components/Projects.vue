@@ -68,6 +68,22 @@ const displayed = computed(() => (showAll.value ? projects : featured.value));
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
-  .grid { grid-template-columns: 1fr; }
+  .bleed { padding-inline: 0; }
+  .grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 0.8rem;
+    padding: 0.25rem 1rem 0.6rem;
+    scroll-padding: 1rem;
+  }
+  .grid::-webkit-scrollbar { display: none; }
+  .grid > * {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
 }
 </style>
