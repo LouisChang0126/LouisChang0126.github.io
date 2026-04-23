@@ -4,7 +4,11 @@ export const ministries: MinistryItem[] = [
   {
     id: 'bol',
     name: { en: 'Taipei Bread of Life - North', zh: '台北靈糧堂 - 北區會堂' },
-    image: '/ministry/bol.jpg',
+    image: [
+      '/ministry/bol.jpg',
+      '/ministry/bol-2.jpg',
+      '/ministry/bol-3.jpg',
+    ],
     bullets: [
       {
         en: 'Youth Worship: sound, backstage management, and service system administration.',
@@ -19,7 +23,11 @@ export const ministries: MinistryItem[] = [
   {
     id: 'revive',
     name: { en: 'Revive NYCU', zh: '陽明交大 - 復興禱告會' },
-    image: '/ministry/revive.jpg',
+    image: [
+      '/ministry/revive.jpg',
+      '/ministry/revive-2.jpg',
+      '/ministry/revive-3.jpg',
+    ],
     bullets: [
       {
         en: 'Founder',
@@ -38,7 +46,11 @@ export const ministries: MinistryItem[] = [
   {
     id: 'koinonia',
     name: { en: 'Koinonia NYCU', zh: '陽明交大 - 柏克萊團契' },
-    image: '/ministry/koinonia.jpg',
+    image: [
+      '/ministry/koinonia.jpg',
+      '/ministry/koinonia-2.jpg',
+      '/ministry/koinonia-3.jpg',
+    ],
     bullets: [
       {
         en: 'President',
