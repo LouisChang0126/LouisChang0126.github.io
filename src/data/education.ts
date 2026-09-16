@@ -18,7 +18,7 @@ export const education: EducationItem[] = [
       zh: '資訊工程學系 學士',
     },
     date: 'Sep. 2022 – Jun. 2026',
-    gpa: '4.00/4.3 (overall)',
+    gpa: '4.02/4.3 (overall)',
   },
 ];
 
