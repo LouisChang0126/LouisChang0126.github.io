@@ -56,8 +56,8 @@ export const ministries: MinistryItem[] = [
     ],
     bullets: [
       {
-        en: 'President',
-        zh: '社長',
+        en: 'Former President',
+        zh: '前社長',
       },
       {
         en: 'the root Cell Group',
