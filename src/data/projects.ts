@@ -143,8 +143,8 @@ export const projects: Project[] = [
       zh: '教會服事LINE Bot & 排班系統',
     },
     summary: {
-      en: 'End-to-end scheduling serving 30+ members in production for 2+ years; LLM agent auto-assigns shifts.',
-      zh: '端到端排班系統，30+位同工正式使用兩年以上；LLM agent 自動排班。',
+      en: 'End-to-end scheduling serving 30+ members in production for 3+ years; LLM agent auto-assigns shifts.',
+      zh: '端到端排班系統，30+位同工正式使用三年以上；LLM agent 自動排班。',
     },
     bullets: [
       {
