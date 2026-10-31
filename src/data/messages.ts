@@ -30,7 +30,7 @@ export const ui: Record<string, Localized> = {
   allProjects: { en: 'All Projects', zh: '全部專案' },
 
   footerBuilt: {
-    en: 'Built with Vue + TypeScript. Last updated Apr. 2026.',
-    zh: '以 Vue + TypeScript 打造。最後更新：2026 年 4 月。',
+    en: 'Built with Vue + TypeScript. Last updated Oct. 2026.',
+    zh: '以 Vue + TypeScript 打造。最後更新：2026 年 10 月。',
   },
 };

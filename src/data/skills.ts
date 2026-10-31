@@ -7,7 +7,7 @@ export const skills: SkillGroup[] = [
   },
   {
     category: { en: 'ML / DL', zh: '機器 / 深度學習' },
-    items: ['PyTorch', 'TensorFlow', 'ONNX', 'OpenCV', 'scikit-learn', 'Hugging Face', 'Whisper(STT)'],
+    items: ['PyTorch', 'TensorFlow', 'ONNX', 'OpenCV', 'scikit-learn', 'Hugging Face'],
   },
   {
     category: { en: 'Computer Vision', zh: '電腦視覺' },
@@ -15,7 +15,7 @@ export const skills: SkillGroup[] = [
   },
   {
     category: { en: 'Robotics', zh: '機器人' },
-    items: ['ROS2', 'PX4', 'Gazebo', 'Universal Manipulation Interface', 'Stretch3', 'RoboCasa', 'Diffusion Policy'],
+    items: ['Code as Policies', 'ROS2', 'PX4', 'Gazebo', 'Isaac Sim', 'Universal Manipulation Interface', 'Stretch3', 'I2RT YAM', 'Diffusion Policy'],
   },
   {
     category: { en: 'LLM / GenAI', zh: 'LLM 與生成式AI' },
@@ -27,6 +27,6 @@ export const skills: SkillGroup[] = [
   },
   {
     category: { en: 'Tools', zh: '技能' },
-    items: ['Git', 'Linux', 'Arduino', '3D Modeling', 'SMT Soldering'],
+    items: ['Git', 'Linux', 'Arduino', '3D Modeling'],
   },
 ];

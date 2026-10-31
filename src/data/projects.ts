@@ -2,6 +2,35 @@ import type { Project } from '@/types';
 
 export const projects: Project[] = [
   {
+    id: 'cap-agents',
+    image: '/projects/cap-agents.jpg',
+    date: 'Sep. 2026 – Present',
+    title: {
+      en: 'Code as Policies & Agent as Policies — HCIS Lab',
+      zh: 'Coding Agent 作為機器人策略 — HCIS Lab',
+    },
+    summary: {
+      en: 'Ongoing M.S. research on LLM coding agents that write, test and repair bimanual robot arm CaP, from simulation to real world.',
+      zh: '進行中的碩士研究：讓 LLM coding agent 撰寫、測試並修正雙臂機械手臂的 CaP，從模擬延伸到真實世界。',
+    },
+    bullets: [
+      {
+        en: 'Ran agents through NVIDIA’s ASPIRE framework on robosuite, LIBERO-PRO and RoboCasa365; extended the framework to RoboCasa365 with an unattended experiment runner and significance testing.',
+        zh: '透過 NVIDIA ASPIRE 框架在 robosuite、LIBERO-PRO、RoboCasa365 上執行 agent；將框架擴充至 RoboCasa365，並建置無人值守的實驗流程與顯著性檢定。',
+      },
+      {
+        en: 'Added the I2RT YAM arm to simulation and brought up a real bimanual YAM setup.',
+        zh: '將 I2RT YAM 手臂導入模擬環境，並完成雙臂 YAM 實機平台建置。',
+      },
+    ],
+    tags: ['Code as Policies', 'LLM Agents', 'RoboCasa365', 'I2RT YAM'],
+    links: [
+      { label: 'ASPIRE', url: 'https://research.nvidia.com/labs/gear/aspire/', icon: 'link' },
+      { label: 'RoboCasa', url: 'https://robocasa.ai/', icon: 'link' },
+    ],
+    featured: true,
+  },
+  {
     id: 'garmin-hazard',
     image: [
       '/projects/garmin-hazard.jpg',
@@ -78,7 +107,7 @@ export const projects: Project[] = [
       '/projects/umi-3.png',
       '/projects/umi-4.png',
     ],
-    date: 'Fall 2024 – Present',
+    date: 'Sep. 2024 – Feb. 2025',
     title: {
       en: 'Real-to-Sim Manipulation Pipeline — HCIS Lab',
       zh: '真實到模擬的機械手臂訓練流程 — HCIS Lab',
@@ -108,7 +137,7 @@ export const projects: Project[] = [
   {
     id: 'stretch3-gripper',
     image: '/projects/stretch3-gripper.mp4',
-    date: 'Fall 2024 – Present',
+    date: 'Sep. 2025 – Jun. 2026',
     title: {
       en: 'Stretch3 & Handheld Multi-Modal Gripper — HCIS Lab',
       zh: 'Stretch3 與手持多模態夾爪 — HCIS Lab',
@@ -188,7 +217,7 @@ export const projects: Project[] = [
       },
     ],
     tags: ['Robot Car', 'LLM', 'STT/TTS', 'Mechanical Design'],
-    featured: true,
+    featured: false,
   },
   {
     id: 'garmin-detection',

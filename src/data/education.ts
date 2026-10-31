@@ -6,7 +6,7 @@ export const education: EducationItem[] = [
     school: { en: 'National Yang Ming Chiao Tung University', zh: '國立陽明交通大學' },
     degree: {
       en: 'M.S. in Data Science and Engineering, College of Computer Science',
-      zh: '資訊學院 資料科學與工程研究所 碩士',
+      zh: '資訊學院 數據科學與工程研究所 碩士',
     },
     date: 'Sep. 2026 – Jun. 2028 (expected)',
   },
@@ -31,6 +31,7 @@ export const coursework: CourseGroup[] = [
   {
     category: { en: 'Robotics & Vision', zh: '機器人與視覺' },
     courses: [
+      { en: 'Physical AI (Grad)', zh: '實體人工智慧（研究所）' },
       { en: 'Robotic Navigation and Exploration (Grad)', zh: '機器人導航與探索（研究所）' },
       { en: 'Selected Topics in Visual Recognition using DL (Grad)', zh: '深度視覺辨識專題（研究所）' },
       { en: 'AI Capstone', zh: 'AI 總整課程' },

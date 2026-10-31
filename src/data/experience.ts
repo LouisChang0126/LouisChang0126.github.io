@@ -46,10 +46,14 @@ export const experience: ExperienceItem[] = [
     organization: 'HCIS Lab (NYCU)',
     role: {
       en: 'Undergraduate Researcher → Master Student',
-      zh: '大學部研究生 → 碩士生',
+      zh: '大學部專題生 → 碩士生',
     },
     date: 'Jun. 2024 – Present',
     bullets: [
+      {
+        en: 'Fall 2026 M.S. research on Code as Policies & Agent as Policies, from simulation benchmarks (robosuite, LIBERO-PRO, RoboCasa365) to real robot arms.',
+        zh: '2026年秋季碩士研究：以 LLM coding agent 作為機器人策略（Code as Policies），從模擬基準（robosuite、LIBERO-PRO、RoboCasa365）延伸到真實機械手臂。',
+      },
       {
         en: 'Led 7-member team researching physical AI on a mobile manipulator in Fall 2024.',
         zh: '2024年秋季帶領 7 人團隊，於移動式機械手臂上研究 physical AI。',
