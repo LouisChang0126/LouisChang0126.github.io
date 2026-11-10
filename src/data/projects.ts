@@ -3,7 +3,11 @@ import type { Project } from '@/types';
 export const projects: Project[] = [
   {
     id: 'cap-agents',
-    image: '/projects/cap-agents.jpg',
+    image: [
+      '/projects/gap-agents-sim.mp4',
+      '/projects/cap-agents-gap.png',
+      '/projects/cap-agents-sim.mp4',
+    ],
     date: 'Sep. 2026 – Present',
     title: {
       en: 'Code as Policies & Agent as Policies — HCIS Lab',
@@ -19,6 +23,10 @@ export const projects: Project[] = [
         zh: '透過 NVIDIA ASPIRE 框架在 robosuite、LIBERO-PRO、RoboCasa365 上執行 agent；將框架擴充至 RoboCasa365，並建置無人值守的實驗流程與顯著性檢定。',
       },
       {
+        en: 'Ran RoboDojo tasks with GaP.',
+        zh: '使用 GaP 執行 RoboDojo 的任務。',
+      },
+      {
         en: 'Added the I2RT YAM arm to simulation and brought up a real bimanual YAM setup.',
         zh: '將 I2RT YAM 手臂導入模擬環境，並完成雙臂 YAM 實機平台建置。',
       },
@@ -26,6 +34,7 @@ export const projects: Project[] = [
     tags: ['Code as Policies', 'LLM Agents', 'RoboCasa365', 'I2RT YAM'],
     links: [
       { label: 'ASPIRE', url: 'https://research.nvidia.com/labs/gear/aspire/', icon: 'link' },
+      { label: 'GaP', url: 'https://graph-robots.github.io/gap/', icon: 'link' },
       { label: 'RoboCasa', url: 'https://robocasa.ai/', icon: 'link' },
     ],
     featured: true,
